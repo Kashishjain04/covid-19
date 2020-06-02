@@ -1,10 +1,12 @@
 <?php 
 include('includes/data.php');
 $title = 'Covid-19 Details';
+$icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
 include("includes/header.php") 
 ?>
 <body id="page-top">
     <div id="wrapper">
+    <?php include('includes/sidebar.php') ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <?php include('includes/nav.php') ?>
