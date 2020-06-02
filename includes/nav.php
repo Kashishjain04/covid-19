@@ -8,9 +8,9 @@
 
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST" action="state.php?name=">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" name="param" placeholder="Search for State">
-                                <div class="input-group-append"><button class="btn btn-primary py-0" name="search"><i class="fas fa-search"></i></button></div>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="state.php" method="POST" >
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" name="name" placeholder="Search for State">
+                                <div class="input-group-append"><button class="btn btn-primary py-0" type="submit"><i class="fas fa-search"></i></button></div>
                             </div>
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">                            
