@@ -19,6 +19,7 @@
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: #1579f6;">Active</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][active] ?></span></div>
                                         </div>
+                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($data[total_values][active]/$data[total_values][confirmed]*100), 2) ."%)"; ?></span></div>                                      
                                     </div>
                                 </div>
                             </div>
@@ -31,8 +32,8 @@
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][recovered] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($data[total_values][recovered]/$data[total_values][confirmed]*100), 2) ."%)"; ?></span></div>                                      
-                                    </div>
+                                          <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($data[total_values][recovered]/$data[total_values][confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        </div>
                                 </div>
                             </div>
                         </div>
