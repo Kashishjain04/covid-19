@@ -3,6 +3,11 @@ foreach($data[statewise] as $State){
     if($State[state] != $name){
         continue;
     }
+    include('includes/statedaily.php');
+    $conf = $confdaily[strtolower($State['statecode'])];
+    $rec = $recdaily[strtolower($State['statecode'])];
+    $dec = $decdaily[strtolower($State['statecode'])];
+    $act = $conf-($rec+$dec);
 ?>
 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -12,7 +17,8 @@ foreach($data[statewise] as $State){
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[confirmed] ?></span></div>
-                                        </div>                                        
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><?php if($conf){?><span style="color: #ed383887; font-size: medium;">↑ <?= $conf ?></span><?php }?></div>
                                     </div>
                                 </div>
                             </div>
@@ -25,7 +31,10 @@ foreach($data[statewise] as $State){
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: #1579f6;">Active</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[active] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($State[active]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        <div class="col mr-2">
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($State[active]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?php if($act>0){ ?>↑ <?= $act?><?php }; if($act<0){ echo "↓ ".abs($act);} ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +47,10 @@ foreach($data[statewise] as $State){
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[recovered] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($State[recovered]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        <div class="col mr-2">
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($State[recovered]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><?php if($rec){?><span style="color: #4ca74687; font-size: medium;">↑ <?= $rec ?></span><?php }?></div>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +63,10 @@ foreach($data[statewise] as $State){
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[deaths] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php  echo "(".round(($State[deaths]/$State[confirmed]*100), 2) ."%)"; ?></span></div>
+                                        <div class="col mr-2">
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round(($State[deaths]/$State[confirmed]*100), 2) ."%)"; ?></span></div>
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><?php if($dec){?><span style="color: #6c757c87; font-size: medium;">↑ <?= $dec ?></span><?php }?></div>
                                     </div>
                                 </div>
                             </div>

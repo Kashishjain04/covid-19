@@ -1,5 +1,4 @@
 
-
     <div class="row py-5">
     <div class="col-lg-10 mx-auto">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
@@ -26,7 +25,7 @@
             ?>
             <tr>
                 <td><?= $Key?></td>
-                <td><?= $District[confirmed] ?></td>
+                <td><?= $District[confirmed]?></td>
                 <td><?= $District[active] ?></td>
                 <td><?= $District[recovered] ?></td>
                 <td><?= $District[deceased] ?></td>                

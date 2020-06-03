@@ -1,4 +1,4 @@
-
+<?php include('includes/statedaily.php') ?>
 
     <div class="row py-5">
     <div class="col-lg-10 mx-auto">
@@ -24,15 +24,22 @@
               <?php
             foreach($data[statewise] as $State){     
               if($State[state]=="Total"){
-                continue;
+                continue;                
               }       
+              $conf = $confdaily[strtolower($State['statecode'])];
+              $rec = $recdaily[strtolower($State['statecode'])];
+              $dec = $decdaily[strtolower($State['statecode'])];
+              $act = $conf-($rec+$dec);
             ?>
             <tr>
-                <td><a style="text-decoration: none;" href="state.php?name=<?= $State[state]?>"><?= $State[state] ?></a></td>
-                <td><?= $State[confirmed] ?></td>
-                <td><?= $State[active] ?></td>
-                <td><?= $State[recovered] ?></td>
-                <td><?= $State[deaths] ?></td>                
+                <div class=row><td><a style="text-decoration: none;" href="state.php?name=<?= $State[state]?>"><?= $State[state] ?></a></td>
+                <td><div class="col-auto"><?php if($conf){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?=$conf?></span><?php }?><span class="row"><?= $State[confirmed] ?></span></div></td>
+                <td><div class="col-auto"><?php if($act>0){ ?>
+                    <span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↑ <?=$act?> </span><?php }?>
+                    <?php if($act<0){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↓ <?=abs($act)?> </span><?php }?>
+                    <span class="row"><?= $State[active] ?></span></div></td>
+                <td><div class="col-auto"><?php if($rec){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;">↑ <?=$rec?> </span><?php }?><span class="row"><?= $State[recovered] ?></span></div></td>
+                <td><div class="col-auto"><?php if($dec){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;">↑ <?=$dec?> </span><?php }?><span class="row"><?= $State[deaths] ?></span></div></td></div>                
             </tr>
             <?php
                 }
