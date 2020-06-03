@@ -22,7 +22,10 @@
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
               <?php
-            foreach($data[state_wise] as $State){            
+            foreach($data[statewise] as $State){     
+              if($State[state]=="Total"){
+                continue;
+              }       
             ?>
             <tr>
                 <td><a style="text-decoration: none;" href="state.php?name=<?= $State[state]?>"><?= $State[state] ?></a></td>

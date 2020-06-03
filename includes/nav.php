@@ -9,20 +9,20 @@
                                         <h6 class="dropdown-header">alerts center</h6>
                                         <?php
                                             $count=0;
-                                            foreach($news as $date => $arr){                                                
-                                                if($count++ == 0){
-                                                continue;
-                                                }                                         
+                                            foreach($ndata['news'] as $article){                                                
+                                                //if($count++ == 0){
+                                                //continue;
+                                                //}                                         
                                                 if($count == 9){
                                                 break;
                                                 }                                         
                                             ?>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                        <a class="d-flex align-items-center dropdown-item" href="<?= $article[webUrl] ?>" target="_blank">
                                             <div class="mr-3">
                                             <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
                                             </div>                                            
-                                            <div><span class="small text-gray-500"><?= $date ?></span>
-                                            <p><?= $arr[0]['info'] ?></p>
+                                            <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article[publishedDateTime])) ?></span>
+                                            <p><?= $article[title] ?></p>
                                             </div>                                            
                                             </a>
                                             <?php } ?>

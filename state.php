@@ -1,7 +1,9 @@
 <?php
-include('includes/data.php');
+include('includes/sdata.php');
+include('includes/cdata.php');
 $name = $_GET['name'];
-$title = $data[state_wise][$name][state];
+$state = $data1[$name];
+$title = $name;
 $icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
 include('includes/header.php');
 ?>
@@ -14,7 +16,7 @@ include('includes/header.php');
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0"><?php echo $data[state_wise][$name][state] ?></h3></div>
+                        <h3 class="text-dark mb-0"><?php echo $name ?></h3></div>
                         <?php  include('includes/dashboardstate.php') ?>
                     <?php include('includes/stable.php') ?>                    
                 </div>

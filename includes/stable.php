@@ -22,7 +22,7 @@
                   <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
               <?php
-            foreach( $data[state_wise][$name][district] as $Key => $District){            
+            foreach( $state[districtData] as $Key => $District){            
             ?>
             <tr>
                 <td><?= $Key?></td>

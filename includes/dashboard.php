@@ -5,8 +5,9 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][confirmed] ?></span></div>
-                                        </div>                                        
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo end($data[cases_time_series])[totalconfirmed] ?></span></div>                                            
+                                        </div>                                                                              
+                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;">(+<?= end($data[cases_time_series])[dailyconfirmed] ?>)</span></div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -17,8 +18,13 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: #1579f6;">Active</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][active] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo end($data[cases_time_series])[totalconfirmed] - (end($data[cases_time_series])[totaldeceased] + end($data[cases_time_series])[totalrecovered]) ?></span></div>
                                         </div>
+                                        <div class="col mr-2">                                        
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(((end($data[cases_time_series])[totalconfirmed] - (end($data[cases_time_series])[totaldeceased] + end($data[cases_time_series])[totalrecovered]))/end($data[cases_time_series])[totalconfirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;">(+<?= end($data[cases_time_series])[dailyconfirmed] - (end($data[cases_time_series])[dilydeceased] + end($data[cases_time_series])[dailyrecovered]) ?>)</span></div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -29,9 +35,12 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][recovered] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo end($data[cases_time_series])[totalrecovered] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($data[total_values][recovered]/$data[total_values][confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        <div class="col mr-2">                                                                                
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round((end($data[cases_time_series])[totalrecovered]/end($data[cases_time_series])[totalconfirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        </div>                                        
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;">(+<?= end($data[cases_time_series])[dailyrecovered] ?>)</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -42,9 +51,12 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[total_values][deaths] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo end($data[cases_time_series])[totaldeceased] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php  echo "(".round(($data[total_values][deaths]/$data[total_values][confirmed]*100), 2) ."%)"; ?></span></div>
+                                        <div class="col mr-2">                                        
+                                        <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round((end($data[cases_time_series])[totaldeceased]/end($data[cases_time_series])[totalconfirmed]*100), 2) ."%)"; ?></span></div>                                        
+                                        </div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;">(+<?= end($data[cases_time_series])[dailydeceased] ?>)</span></div>                                        
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,9 @@
-
+<?php
+foreach($data[statewise] as $State){
+    if($State[state] != $name){
+        continue;
+    }
+?>
 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-left-primary py-2">
@@ -6,7 +11,7 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[state_wise][$name][confirmed] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[confirmed] ?></span></div>
                                         </div>                                        
                                     </div>
                                 </div>
@@ -18,8 +23,9 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: #1579f6;">Active</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[state_wise][$name][active] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[active] ?></span></div>
                                         </div>
+                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($State[active]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
                                     </div>
                                 </div>
                             </div>
@@ -30,9 +36,9 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[state_wise][$name][recovered] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[recovered] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($data[state_wise][$name][recovered]/$data[state_wise][$name][confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                        <div style="font-size: 20px;" class="col-auto"><span><?php echo "(".round(($State[recovered]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
                                     </div>
                                 </div>
                             </div>
@@ -43,11 +49,13 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $data[state_wise][$name][deaths] ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[deaths] ?></span></div>
                                         </div>
-                                        <div style="font-size: 20px;" class="col-auto"><span><?php  echo "(".round(($data[state_wise][$name][deaths]/$data[state_wise][$name][confirmed]*100), 2) ."%)"; ?></span></div>
+                                        <div style="font-size: 20px;" class="col-auto"><span><?php  echo "(".round(($State[deaths]/$State[confirmed]*100), 2) ."%)"; ?></span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+<?php } ?>

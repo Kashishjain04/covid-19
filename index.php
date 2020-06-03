@@ -1,5 +1,5 @@
 <?php 
-include('includes/data.php');
+include('includes/cdata.php');
 $title = 'Covid-19 Details';
 $icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
 include("includes/header.php") 
