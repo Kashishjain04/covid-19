@@ -1,4 +1,7 @@
 <?php
+$pop = file_get_contents('includes/poparrays.json');
+$pop = json_decode($pop, true);
+//var_dump($pop);
 foreach($data[statewise] as $State){
     if($State[state] != $name){
         continue;
@@ -8,6 +11,7 @@ foreach($data[statewise] as $State){
     $rec = $recdaily[strtolower($State['statecode'])];
     $dec = $decdaily[strtolower($State['statecode'])];
     $act = $conf-($rec+$dec);
+    $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
 ?>
 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -71,6 +75,20 @@ foreach($data[statewise] as $State){
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-light py-2"style="border-left:.25rem solid #ef7c39!important">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #ef7c39;">confirmed per million</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= $cpm ?></span></div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 <?php } ?>
+

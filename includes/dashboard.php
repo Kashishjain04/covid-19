@@ -1,12 +1,12 @@
 <?php
 
-$tconf = end($data[cases_time_series])[totalconfirmed] ;
-$trec = end($data[cases_time_series])[totalrecovered];
-$tdec = end($data[cases_time_series])[totaldeceased];
+$tconf = $livedata['stats']['totalConfirmedCases'];
+$trec = $livedata['stats']['totalRecoveredCases'];
+$tdec = $livedata['stats']['totalDeaths'];
 $tact = $tconf-($trec+$tdec);
-$dconf = end($data[cases_time_series])[dailyconfirmed];
-$drec = end($data[cases_time_series])[dailyrecovered];
-$ddec = end($data[cases_time_series])[dailydeceased];
+$dconf = $livedata['stats']['newlyConfirmedCases'];
+$drec = $livedata['stats']['newlyRecoveredCases'];
+$ddec = $livedata['stats']['newDeaths'];
 $dact = $dconf-($drec+$ddec);
 ?>
 

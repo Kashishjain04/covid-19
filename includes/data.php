@@ -1,5 +1,5 @@
 <?php
-
+/*
 //$parameter = $_GET('param');
 
 $curl = curl_init();
@@ -26,11 +26,6 @@ curl_close($curl);
 
 if ($err) {
 	echo "cURL Error #:" . $err;
-} else {
-	foreach($data[state_wise][Haryana][district][Sirsa] as $parameter[$value]){
-		//echo $parameter.': '.$value. PHP_EOL;
-    }
-    //$result = $data.$parameter;
-	//echo $response;
-}
+} 
+
 ?>

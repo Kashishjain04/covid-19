@@ -32,7 +32,7 @@
               $act = $conf-($rec+$dec);
             ?>
             <tr>
-                <div class=row><td><a style="text-decoration: none;" href="state.php?name=<?= $State[state]?>"><?= $State[state] ?></a></td>
+                <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>
                 <td><div class="col-auto"><?php if($conf){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?=$conf?></span><?php }?><span class="row"><?= $State[confirmed] ?></span></div></td>
                 <td><div class="col-auto"><?php if($act>0){ ?>
                     <span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↑ <?=$act?> </span><?php }?>
