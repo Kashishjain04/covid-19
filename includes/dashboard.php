@@ -4,6 +4,10 @@ $tconf = end($data[cases_time_series])[totalconfirmed] ;
 $trec = end($data[cases_time_series])[totalrecovered];
 $tdec = end($data[cases_time_series])[totaldeceased];
 $tact = $tconf-($trec+$tdec);
+$dconf = end($data[cases_time_series])[dailyconfirmed];
+$drec = end($data[cases_time_series])[dailyrecovered];
+$ddec = end($data[cases_time_series])[dailydeceased];
+$dact = $dconf-($drec+$ddec);
 ?>
 
 <div class="row">
@@ -15,7 +19,7 @@ $tact = $tconf-($trec+$tdec);
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $tconf?></span></div>                                            
                                         </div>                                                                              
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;">↑ <?= $tconf ?></span></div>                                        
+                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;">↑ <?= $dconf ?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +35,7 @@ $tact = $tconf-($trec+$tdec);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tact/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;">↑ <?= $tact?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?php if($dact>0){ ?>↑ <?= $dact?><?php }; if($dact<0){ echo "↓ ".abs($dact);} ?></span></div>
                                         
                                     </div>
                                 </div>
@@ -48,7 +52,7 @@ $tact = $tconf-($trec+$tdec);
                                         <div class="col mr-2">                                                                                
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($trec/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>                                        
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;">↑<?= $trec ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;">↑<?= $drec ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +68,7 @@ $tact = $tconf-($trec+$tdec);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tdec/$tconf*100), 2) ."%)"; ?></span></div>                                        
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;">↑<?= $tdec ?></span></div>                                        
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;">↑ <?= $ddec?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
