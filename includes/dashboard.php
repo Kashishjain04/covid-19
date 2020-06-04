@@ -1,5 +1,6 @@
 <?php
-
+$pop = file_get_contents('includes/poparrays.json');
+$pop = json_decode($pop, true);
 $tconf = $livedata['stats']['totalConfirmedCases'];
 $trec = $livedata['stats']['totalRecoveredCases'];
 $tdec = $livedata['stats']['totalDeaths'];
@@ -8,6 +9,7 @@ $dconf = $livedata['stats']['newlyConfirmedCases'];
 $drec = $livedata['stats']['newlyRecoveredCases'];
 $ddec = $livedata['stats']['newDeaths'];
 $dact = $dconf-($drec+$ddec);
+$cpm = round($tconf/$pop['India']*1000000, 2);
 ?>
 
 <div class="row">
@@ -69,6 +71,19 @@ $dact = $dconf-($drec+$ddec);
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tdec/$tconf*100), 2) ."%)"; ?></span></div>                                        
                                         </div>
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;">↑ <?= $ddec?></span></div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-light py-2"style="border-left:.25rem solid #ef7c39!important">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #ef7c39;">confirmed per million</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= $cpm ?></span></div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
