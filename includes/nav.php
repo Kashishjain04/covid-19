@@ -3,16 +3,13 @@
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>                        
                         <ul class="nav navbar-nav flex-nowrap ml-auto">                            
                             <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                <div style="margin-right: 40px;" class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><image width="27px" src="https://image.flaticon.com/icons/png/512/2971/2971446.png" /></a>
+                                <div style="margin-right: 20px;" class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><image width="27px" src="https://image.flaticon.com/icons/png/512/2971/2971446.png" /></a>
                                     <div style="max-height: 400px; overflow: scroll;" class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
                                         role="menu">
                                         <h6 class="dropdown-header">alerts center</h6>
                                         <?php
                                             $count=0;
-                                            foreach($ndata['news'] as $article){                                                
-                                                //if($count++ == 0){
-                                                //continue;
-                                                //}                                         
+                                            foreach($ndata['news'] as $article){                                                                                                
                                                 if($count == 9){
                                                 break;
                                                 }                                         

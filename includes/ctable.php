@@ -4,7 +4,7 @@
     <div class="col-auto mx-auto">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
       <input type="text" class="bg-light text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
-      </div>
+    </div>
       <span class="counter pull-right"></span>
       <div class="card rounded shadow border-0" style="max-height: 600px; overflow: scroll;">
           <div class="table-responsive results">

@@ -16,7 +16,7 @@ include("includes/header.php")
                     </div>
                         <?php  include('includes/dashboard.php') ?>
                     <?php include('includes/ctable.php') ?>
-                    <?php include('includes/chart.php') ?>
+                    <?php include('includes/cchart.php') ?>
                 </div>
             </div>
             <?php include('includes/footer.php') ?>
