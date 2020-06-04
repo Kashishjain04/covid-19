@@ -11,4 +11,5 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <link rel="icon" href="<?= $icon ?>">
+    <script data-ad-client="ca-pub-4358811063308681" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
