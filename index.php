@@ -15,7 +15,8 @@ include("includes/header.php")
                         <h3 class="text-dark mb-0">India</h3>
                     </div>
                         <?php  include('includes/dashboard.php') ?>
-                    <?php include('includes/ctable.php') ?>                    
+                    <?php include('includes/ctable.php') ?>
+                    <?php include('includes/chart.php') ?>
                 </div>
             </div>
             <?php include('includes/footer.php') ?>
