@@ -20,9 +20,7 @@ $response = curl_exec($curl);
 $data1 = json_decode($response, true);
 curl_close($curl);
 
-
-$starr = json_decode($response, true);
-$stdaily = $starr['states_daily'];
+$stdaily = $data1['states_daily'];
 foreach($stdaily as $key=>$std){
   if($std['date'] == $date && $std['status']=="Confirmed")
   {

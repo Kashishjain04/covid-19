@@ -1,13 +1,14 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-$tconf = $livedata['stats']['totalConfirmedCases'];
-$trec = $livedata['stats']['totalRecoveredCases'];
-$tdec = $livedata['stats']['totalDeaths'];
+$tconf = $data['statewise'][0]['confirmed'];
+$trec = $data['statewise'][0]['recovered'];
+$tdec = $data['statewise'][0]['deaths'];
 $tact = $tconf-($trec+$tdec);
-$dconf = $livedata['stats']['newlyConfirmedCases'];
-$drec = $livedata['stats']['newlyRecoveredCases'];
-$ddec = $livedata['stats']['newDeaths'];
+//$count = count($data['cases_time_series']);
+$dconf = $tconf-end($data['cases_time_series'])['totalconfirmed'];
+$drec = $trec-end($data['cases_time_series'])['totalrecovered'];
+$ddec = $tdec-end($data['cases_time_series'])['totaldeceased'];
 $dact = $dconf-($drec+$ddec);
 $cpm = round($tconf/$pop['India']*1000000, 2);
 ?>

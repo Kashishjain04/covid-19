@@ -99,6 +99,9 @@ foreach($data['cases_time_series'] as $check){
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -152,6 +155,9 @@ foreach($data['cases_time_series'] as $check){
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -205,6 +211,9 @@ foreach($data['cases_time_series'] as $check){
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -249,34 +258,134 @@ foreach($data['cases_time_series'] as $check){
           '<?= $data1['totaldeceased']?>',
         <?php }?>   
         ],
-        lineTension: 0,       
         borderColor: '#6c757c',
-        backgroundColor: 'transparent',
-        borderWidth: 1,
-        pointBackgroundColor: '#6c757c',        
-        hoverBorderWidth: '2'
+            backgroundColor: 'transparent',
+            borderWidth: 1,
+            pointBackgroundColor: '#6c757c',  
+            pointHitRadius: 2,      
+            hoverBorderWidth: 2,
+            
       }]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
+
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },          
+          tooltips: {
+            intersect: false,
           },
-            gridLines: {
+          scales: {
+            xAxes: [{
+              gridLines: {
+                offsetGridLines: true,
+                display: false,
+                drawBorder: true
+              },              
+            }],
+            yAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: true
+              },
+              ticks: {
+                beginAtZero: true,
+                display: true,
+              }
+            }]
+          },
+          title: {
             display: false,
+          },
+          /*elements: {
+            line: {
+              tension: 0.00001,
+              borderWidth: 1,              
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 6,
+              //backgroundColor: '#fff',
+            }
+          }*/
         }
-        }],
-        xAxes: [{
-            gridLines: {
+      });
+  /*var myChart = new Chart(de, {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June','January', 'February', 'March', 'April', 'May', 'June','January', 'February', 'March', 'April', 'May', 'June','January', 'February', 'March', 'April', 'May', 'June'],
+          type: 'line',
+          datasets: [{
+            data: [1, 18, 9, 17, 34, 22,1, 18, 9, 17, 34, 22,1, 18, 9, 17, 34, 22,1, 18, 9, 17, 34, 22,1, 18, 9, 17, 34, 22],
+            //lineTension: 0,        
+            borderColor: '#4ca746',
+            backgroundColor: 'transparent',
+            borderWidth: 1,
+            pointBackgroundColor: '#4ca746',  
+            pointHitRadius: 2,      
+            hoverBorderWidth: 2,
+            label: 'Dataset',
+          },]
+        },        
+        options: {
+
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Montserrat',
+            bodyFontFamily: 'Montserrat',
+            cornerRadius: 3,
+            intersect: false,
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: '#000'
+              }
+            }],
+            yAxes: [{
+              display: true,
+              gridLines: {
+                display: false,
+                drawBorder: false
+              },
+              ticks: {
+                display: true,
+              }
+            }]
+          },
+          title: {
             display: false,
+          },
+          elements: {
+            line: {
+              tension: 0.00001,
+              borderWidth: 1,              
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 6,
+              //backgroundColor: '#fff',
+            }
+          }
         }
-        }]
-      },
-      legend: {
-        display: false
-      }
-    }
-  })
+      });*/
 }())
 </script>
