@@ -14,9 +14,16 @@ foreach($data[statewise] as $State){
         $r += $stdaily[$Key+1][strtolower($State['statecode'])];
         $d += $stdaily[$Key+2][strtolower($State['statecode'])];
     }    
-    $conf = $State[confirmed] - $c;
-    $rec = $State[recovered] - $r;
-    $dec = $State[deaths] - $d;
+    if($c < $conf){
+        $conf = $State[confirmed] - $c;
+        $rec = $State[recovered] - $r;
+        $dec = $State[deaths] - $d;        
+        }
+        else{
+            $conf = $stdaily[$count-3][strtolower($State['statecode'])];
+            $rec = $stdaily[$count-2][strtolower($State['statecode'])];
+            $dec = $stdaily[$count-1][strtolower($State['statecode'])];
+        }
     $act = $conf-($rec+$dec);
     $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
 ?>
