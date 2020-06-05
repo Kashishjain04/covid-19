@@ -18,9 +18,10 @@ include('includes/header.php');
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0"><?php echo $name ?></h3></div>
                         <?php  include('includes/dashboardstate.php') ?>
-                    <?php include('includes/stable.php') ?>                    
+                    <?php include('includes/stable.php') ?>
+                    <?php include('includes/schart.php') ?>  
                 </div>
             </div>
-            <?php
+            <?php            
             include('includes/footer.php');
             ?>

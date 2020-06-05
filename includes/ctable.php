@@ -1,4 +1,5 @@
 <?php include('includes/statedaily.php') ?>
+<?php include('includes/schartscript.php') ?>
     <div class="row py-5">
     <div class="col-auto mx-auto">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
@@ -25,9 +26,17 @@
               if($State[state]=="Total"){
                 continue;                
               }       
-              $conf = $confdaily[strtolower($State['statecode'])];
-              $rec = $recdaily[strtolower($State['statecode'])];
-              $dec = $decdaily[strtolower($State['statecode'])];
+              include('includes/statedaily.php');    
+              $c = 0; $r=0; $d=0;
+              $count = count($stdaily);
+              for($Key=0; $Key < $count; $Key+=3){          
+                  $c += $stdaily[$Key][strtolower($State['statecode'])];
+                  $r += $stdaily[$Key+1][strtolower($State['statecode'])];
+                  $d += $stdaily[$Key+2][strtolower($State['statecode'])];
+              }    
+              $conf = $State[confirmed] - $c;
+              $rec = $State[recovered] - $r;
+              $dec = $State[deaths] - $d;
               $act = $conf-($rec+$dec);
             ?>
             <tr>

@@ -6,10 +6,17 @@ foreach($data[statewise] as $State){
     if($State[state] != $name){
         continue;
     }
-    include('includes/statedaily.php');
-    $conf = $confdaily[strtolower($State['statecode'])];
-    $rec = $recdaily[strtolower($State['statecode'])];
-    $dec = $decdaily[strtolower($State['statecode'])];
+    include('includes/statedaily.php');    
+    $c = 0; $r=0; $d=0;
+    $count = count($stdaily);
+    for($Key=0; $Key < $count; $Key+=3){          
+        $c += $stdaily[$Key][strtolower($State['statecode'])];
+        $r += $stdaily[$Key+1][strtolower($State['statecode'])];
+        $d += $stdaily[$Key+2][strtolower($State['statecode'])];
+    }    
+    $conf = $State[confirmed] - $c;
+    $rec = $State[recovered] - $r;
+    $dec = $State[deaths] - $d;
     $act = $conf-($rec+$dec);
     $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
 ?>

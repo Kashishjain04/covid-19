@@ -1,12 +1,4 @@
-<?php 
 
-$count = 0;
-foreach($data['cases_time_series'] as $check){
-  if($check['date'])
-    $count++;
-}
-
-?>
 <div class="row py-5">
   <div class="col-lg-5 mx-auto">
     <div class="card shadow mb-4"style="background: #ed383823">
@@ -51,11 +43,34 @@ foreach($data['cases_time_series'] as $check){
 </div> 
 </div>                           
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
         
-        <script>        
+
+
+        <?php 
+$count = count($stdaily);
+    foreach($data['statewise'] as $State){
+      if($State['state'] == $name){              
+        $Key = $count - 93;
+        $c=0;
+        $r=0;        
+        $d=0;
+        for($Key=0; $Key<($count-93); $Key+=3){
+          $c+= $stdaily[$Key][strtolower($State['statecode'])];
+        }
+        for($Key=1; $Key<($count-92); $Key+=3){
+          $r+= $stdaily[$Key][strtolower($State['statecode'])];
+        }
+        for($Key=2; $Key<($count-91); $Key+=3){
+          $d+= $stdaily[$Key][strtolower($State['statecode'])];
+        }
+        $a=$c-($r+$d);
+?>
+
+
+
+<script>        
 (function () {
   'use strict'
 
@@ -68,37 +83,36 @@ foreach($data['cases_time_series'] as $check){
 
   // eslint-disable-next-line no-unused-vars
   var myChart = new Chart(cnf, {
-    type: 'line',
+    type: 'line', 
     data: {
       labels: [
-        <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+        <?php         
+        for($Key= $count-93; $Key<$count; $Key+=3){            
             ?>
-          '<?= $data1['date']?>',
-        <?php }?>                
+          '<?= $stdaily[$Key]['date']?>',
+        <?php  }?>               
       ],
       datasets: [{
         data: [
-          <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+          <?php         
+        for($Key= $count-93; $Key<$count; $Key+=3){            
+            $c += $stdaily[$Key][strtolower($State['statecode'])];
             ?>
-          '<?= $data1['totalconfirmed']?>',
-        <?php }?>   
+          '<?= $c?>',
+        <?php  }?>   
         ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
+        lineTension: 0,        
         borderColor: '#ed3838',
-        borderWidth: 4,
-        pointBackgroundColor: '#ed3838'
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        pointBackgroundColor: '#ed3838',        
+        hoverBorderWidth: '2'
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -123,34 +137,33 @@ foreach($data['cases_time_series'] as $check){
     type: 'line',
     data: {
       labels: [
-        <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+        <?php         
+        for($Key= $count-93; $Key<$count; $Key+=3){            
             ?>
-          '<?= $data1['date']?>',
-        <?php }?>                
+          '<?= $stdaily[$Key]['date']?>',
+        <?php  }?>               
       ],
       datasets: [{
         data: [
-          <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+          <?php         
+        for($Key= $count-93; $Key<$count; $Key+=3){            
+            $a += ($stdaily[$Key][strtolower($State['statecode'])]-(($stdaily[$Key+1][strtolower($State['statecode'])])+($stdaily[$Key+2][strtolower($State['statecode'])])));
             ?>
-          '<?= $data1['totalconfirmed']-($data1['totalrecovered']+$data1['totaldeceased'])?>',
-        <?php }?>   
+          '<?= $a?>',
+        <?php  }?>   
         ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
+        lineTension: 0,        
         borderColor: '#1579f6',
-        borderWidth: 4,
-        pointBackgroundColor: '#1579f6'
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        pointBackgroundColor: '#1579f6',        
+        hoverBorderWidth: '2'
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -175,34 +188,33 @@ foreach($data['cases_time_series'] as $check){
     type: 'line',
     data: {
       labels: [
-        <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+        <?php         
+        for($Key= $count-92; $Key<$count; $Key+=3){            
             ?>
-          '<?= $data1['date']?>',
-        <?php }?>                
+          '<?= $stdaily[$Key]['date']?>',
+        <?php  }?>               
       ],
       datasets: [{
         data: [
-          <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+          <?php         
+        for($Key= $count-92; $Key<$count; $Key+=3){            
+            $r += $stdaily[$Key][strtolower($State['statecode'])];
             ?>
-          '<?= $data1['totalrecovered']?>',
-        <?php }?>   
+          '<?= $r?>',
+        <?php  }?>   
         ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
+        lineTension: 0,        
         borderColor: '#4ca746',
-        borderWidth: 4,
-        pointBackgroundColor: '#4ca746'
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        pointBackgroundColor: '#4ca746',        
+        hoverBorderWidth: '2'
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -227,34 +239,33 @@ foreach($data['cases_time_series'] as $check){
     type: 'line',
     data: {
       labels: [
-        <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+        <?php         
+        for($Key= $count-91; $Key<$count; $Key+=3){            
             ?>
-          '<?= $data1['date']?>',
-        <?php }?>                
+          '<?= $stdaily[$Key]['date']?>',
+        <?php  }?>               
       ],
       datasets: [{
         data: [
-          <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
-            continue;
+          <?php         
+        for($Key= $count-91; $Key<$count; $Key+=3){            
+            $d += $stdaily[$Key][strtolower($State['statecode'])];
             ?>
-          '<?= $data1['totaldeceased']?>',
-        <?php }?>   
+          '<?= $d?>',
+        <?php  }?>   
         ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
+        lineTension: 0,       
         borderColor: '#6c757c',
-        borderWidth: 4,
-        pointBackgroundColor: '#6c757c'
+        backgroundColor: 'transparent',
+        borderWidth: 1,
+        pointBackgroundColor: '#6c757c',        
+        hoverBorderWidth: '2'
       }]
     },
     options: {
+      tooltips: {
+            intersect: false,
+          },
       scales: {
         yAxes: [{
           ticks: {
@@ -277,3 +288,4 @@ foreach($data['cases_time_series'] as $check){
   })
 }())
 </script>
+<?php };}?>
