@@ -26,10 +26,10 @@ $dailydist = json_decode($dailydist, true)['districtsDaily'][$name];
                   <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
               <?php
-            foreach( $state[districtData] as $Key => $District){
-              //var_dump($dailydist[$Key]);
               $count = count($dailydist[$Key]);
-              $dc = ($dailydist[$Key][$count-1]['confirmed'])-($dailydist[$Key][($count-2)]['confirmed']);
+            foreach( $state[districtData] as $Key => $District){
+              //var_dump($dailydist[$Key]);              
+              $dc = ($District[$count-1]['confirmed'])-($District[($count-2)]['confirmed']);
               $da = $dailydist[$Key][$count-1]['active']-$dailydist[$Key][($count-2)]['active'];
               $dr = $dailydist[$Key][$count-1]['recovered']-$dailydist[$Key][($count-2)]['recovered'];
               $dd = $dailydist[$Key][$count-1]['deceased']-$dailydist[$Key][($count-2)]['deceased'];
