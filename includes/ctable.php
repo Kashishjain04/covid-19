@@ -25,25 +25,12 @@
             foreach($data[statewise] as $State){     
               if($State[state]=="Total"){
                 continue;                
-              }       
-              include('includes/statedaily.php');    
-              $c = 0; $r=0; $d=0;
-              $count = count($stdaily);
-              for($Key=0; $Key < $count; $Key+=3){          
-                  $c += $stdaily[$Key][strtolower($State['statecode'])];
-                  $r += $stdaily[$Key+1][strtolower($State['statecode'])];
-                  $d += $stdaily[$Key+2][strtolower($State['statecode'])];
-              }    
-              if($c < $conf){
-                $conf = $State[confirmed] - $c;
-                $rec = $State[recovered] - $r;
-                $dec = $State[deaths] - $d;        
-                }
-                else{
-                    $conf = $stdaily[$count-3][strtolower($State['statecode'])];
-                    $rec = $stdaily[$count-2][strtolower($State['statecode'])];
-                    $dec = $stdaily[$count-1][strtolower($State['statecode'])];
-                }
+              } 
+              $conf = $State['deltaconfirmed'];
+              $rec = $State['deltarecovered'];
+              $dec = $State['deltadeaths'];
+              $act=$conf-($rec+$dec);
+              
             ?>
             <tr>
                 <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>

@@ -6,10 +6,28 @@ $trec = $data['statewise'][0]['recovered'];
 $tdec = $data['statewise'][0]['deaths'];
 $tact = $tconf-($trec+$tdec);
 //$count = count($data['cases_time_series']);
-$dconf = $tconf-end($data['cases_time_series'])['totalconfirmed'];
-$drec = $trec-end($data['cases_time_series'])['totalrecovered'];
-$ddec = $tdec-end($data['cases_time_series'])['totaldeceased'];
+$dconf = $data['statewise'][0]['deltaconfirmed'];
+$drec = $data['statewise'][0]['deltarecovered'];
+$ddec = $data['statewise'][0]['deltadeaths'];
 $dact = $dconf-($drec+$ddec);
+    if($dconf)
+        $dconf = "↑ ".$dconf;
+    if(!$dconf)
+        $dconf = "♥︎";
+    if($drec)
+        $drec = "↑ ".$drec;
+    if(!$drec)
+        $drec = "♥︎";
+    if($ddec)
+        $ddec = "↑ ".$ddec;
+    if(!$ddec)
+        $dec = "♥︎";    
+    if($dact>0)
+        $dact = "↑ ".$dact;
+    if($dact<0)
+        $dact = "↓ ".$dact;
+    if(!$dact)
+        $dact = "♥︎";
 $cpm = round($tconf/$pop['India']*1000000, 2);
 ?>
 
@@ -22,7 +40,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $tconf?></span></div>                                            
                                         </div>                                                                              
-                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;">↑ <?= $dconf ?></span></div>                                        
+                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;"><?= $dconf ?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +56,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tact/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?php if($dact>0){ ?>↑ <?= $dact?><?php }; if($dact<0){ echo "↓ ".abs($dact);} ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?= $dact?></span></div>
                                         
                                     </div>
                                 </div>
@@ -55,7 +73,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                                                                
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($trec/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>                                        
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;">↑<?= $drec ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;"><?= $drec ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +89,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tdec/$tconf*100), 2) ."%)"; ?></span></div>                                        
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;">↑ <?= $ddec?></span></div>                                        
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;"><?= $ddec?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
