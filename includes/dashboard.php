@@ -25,7 +25,7 @@ $dact = $dconf-($drec+$ddec);
     if($dact>0)
         $dact = "↑ ".$dact;
     if($dact<0)
-        $dact = "↓ ".$dact;
+        $dact = "↓ ".abs($dact);
     if(!$dact)
         $dact = "♥︎";
 $cpm = round($tconf/$pop['India']*1000000, 2);
@@ -40,7 +40,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $tconf?></span></div>                                            
                                         </div>                                                                              
-                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;"><?= $dconf ?></span></div>                                        
+                                        <div style="font-size: 20px;" class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #ed383887; font-size: medium;"><?= $dconf ?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tact/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?= $dact?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #1579f687; font-size: medium;"><?= $dact?></span></div>
                                         
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                                                                
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($trec/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>                                        
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;"><?= $drec ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #4ca74687; font-size: medium;"><?= $drec ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">                                        
                                         <div style="font-size: 16px;" class="col-auto"><span><?= "(".round(($tdec/$tconf*100), 2) ."%)"; ?></span></div>                                        
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #6c757c87; font-size: medium;"><?= $ddec?></span></div>                                        
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #6c757c87; font-size: medium;"><?= $ddec?></span></div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -101,6 +101,19 @@ $cpm = round($tconf/$pop['India']*1000000, 2);
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #ef7c39;">confirmed per million</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $cpm ?></span></div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-light py-2"style="border-left:.25rem solid #7c4bde!important">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #7c4bde;">First Case Registered</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"> 30 January</span></div>
                                         </div>
                                         
                                     </div>
