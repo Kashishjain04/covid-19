@@ -9,6 +9,10 @@ include('includes/header.php');
 ?>
 
 <body id="page-top">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL3N95B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="wrapper">
     <?php include('includes/sidebar.php') ?>
         <div class="d-flex flex-column" id="content-wrapper">
