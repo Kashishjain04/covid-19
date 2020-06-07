@@ -26,7 +26,7 @@ foreach($data[statewise] as $State){
         $act = "↑ ".$act;
     if($act<0)
         $act = "↓ ".$act;
-    else
+    If(!$act)
         $act = "&#10084;";
     $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
 ?>
