@@ -36,7 +36,7 @@ $dailydist = json_decode($dailydist, true)['districtsDaily'][$name];
             ?>
             <tr>
             <div class=row><td><?= $Key?></td>
-                <td><div class="col-auto"><?php if($dc){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?=$dc?></span><?php }?><span class="row"><?= $District[confirmed] ?></span></div></td>
+                <td><div class="col-auto"><?php if($dc){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?= $dc?></span><?php }?><span class="row"><?= $District[confirmed] ?></span></div></td>
                 <td><div class="col-auto"><?php if($da>0){ ?>
                     <span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↑ <?=$da?> </span><?php }?>
                     <?php if($da<0){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↓ <?=abs($da)?> </span><?php }?>

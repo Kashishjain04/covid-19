@@ -9,6 +9,7 @@ foreach($data[statewise] as $State){
     $conf = $State['deltaconfirmed'];;
     $rec = $State['deltarecovered'];
     $dec = $State['deltadeaths'];
+    $act = $conf-($rec+$dec);
     if($conf)
         $conf = "↑ ".$conf;
     else
@@ -21,14 +22,15 @@ foreach($data[statewise] as $State){
         $dec = "↑ ".$dec;
     else
         $dec = "♥︎";
-    $act = $conf-($rec+$dec);
     if($act>0)
         $act = "↑ ".$act;
     if($act<0)
-        $act = "↓ ".$act;
-    else
+        $act = "↓ ".abs($act);
+    if(!$act){
         $act = "♥︎";
+    }
     $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
+    $sc = strtolower($State['statecode']);
 ?>
 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -39,7 +41,7 @@ foreach($data[statewise] as $State){
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[confirmed] ?></span></div>
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #ed383887; font-size: medium;"><?= $conf ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #ed383887; font-size: medium;"><?= $conf ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +57,7 @@ foreach($data[statewise] as $State){
                                         <div class="col mr-2">
                                         <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($State[active]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #1579f687; font-size: medium;"><?= $act?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #1579f687; font-size: medium;"><?= $act?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +73,7 @@ foreach($data[statewise] as $State){
                                         <div class="col mr-2">
                                         <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($State[recovered]/$State[confirmed]*100), 2) ."%)"; ?></span></div>                                      
                                         </div>
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: #4ca74687; font-size: medium;"><?= $rec ?></span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #4ca74687; font-size: medium;"><?= $rec ?></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +83,7 @@ foreach($data[statewise] as $State){
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
-                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: transparent;  text-shadow: 0 0 0 #6c757c;">deceased</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $State[deaths] ?></span></div>
                                         </div>
                                         <div class="col mr-2">
@@ -105,7 +107,26 @@ foreach($data[statewise] as $State){
                                 </div>
                             </div>
                         </div>
+                        <?php 
+                        foreach($stdaily as $day){
+                            if(!$day[$sc]){
+                        ?>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-light py-2"style="border-left:.25rem solid #7c4bde!important">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #7c4bde;">First Case Registered</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><?= date("d F", strtotime($day[date])) ?></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <?php
+                    break;} }
+                    ?>
 
 <?php } ?>
 
