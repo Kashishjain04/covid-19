@@ -107,7 +107,7 @@ foreach($data[statewise] as $State){
                                 </div>
                             </div>
                         </div>
-                        <?php 
+                        <?php /*
                         foreach($stdaily as $day){
                             if(!$day[strtolower($State['statecode'])]){
                         ?>
@@ -125,7 +125,7 @@ foreach($data[statewise] as $State){
                         </div>
                     </div>
                     <?php
-                    break;} }
+                    break;} }*/
                     ?>
 
 <?php } ?>
