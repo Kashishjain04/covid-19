@@ -11,21 +11,22 @@
                                         <h6 class="dropdown-header">alerts center</h6>
                                         <?php
                                             $count=0;
-                                            foreach($ndata['news'] as $article){                                                                                                
-                                                if($count == 9){
+                                            foreach($ndata['articles'] as $article){                                                                                                
+                                                if($count++ == 10){
                                                 break;
                                                 }                                         
                                             ?>
-                                        <a class="d-flex align-items-center dropdown-item" href="<?= $article[webUrl] ?>" target="_blank">
+                                        <a class="d-flex align-items-center dropdown-item" href="<?= $article['url'] ?>" target="_blank">
                                             <div class="mr-3">
                                             <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
                                             </div>                                            
-                                            <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article[publishedDateTime])) ?></span>
+                                            <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article['publishedAt'])) ?></span>
                                            <p><?= $article[title] ?></p>
+                                           <span class="small float-right text-gray-500">- <?= $article['source']['name'] ?>
                                             </div>                                            
                                             </a>
                                             <?php } ?>
-                                        <a class="text-center dropdown-item small text-gray-500" href="#">Show All Articles</a></div>
+                                        <!--a class="text-center dropdown-item small text-gray-500" href="#">Show All Articles</a--></div>
                                 </div>
                             </li>                                                        
                         </ul>
