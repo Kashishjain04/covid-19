@@ -5,7 +5,7 @@ $dailydist = file_get_contents('https://api.covid19india.org/districts_daily.jso
 //var_dump($dailydist['districtsDaily'][$name]);
 ?>
     <div class="row py-5">
-    <div class="col-auto mx-auto">
+  <div class="col-auto mx-auto" style="max-width: 60%;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
       <input type="text" class="bg-light text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
       </div>
@@ -49,11 +49,11 @@ $dailydist = file_get_contents('https://api.covid19india.org/districts_daily.jso
             <?php
                 }
             ?>
-            </table>
+    </table>
               
               </div>
               </div>
-              </div>
+    </div>    
               
 
 

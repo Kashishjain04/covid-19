@@ -29,8 +29,7 @@ foreach($data[statewise] as $State){
     if(!$act){
         $act = "♥︎";
     }
-    $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);
-    //$sc = strtolower($State['statecode']);
+    $cpm = round($State[confirmed]/$pop[$State[state]]*1000000, 2);    
 ?>
 <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -106,27 +105,7 @@ foreach($data[statewise] as $State){
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php /*
-                        foreach($stdaily as $day){
-                            if(!$day[strtolower($State['statecode'])]){
-                        ?>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-light py-2"style="border-left:.25rem solid #7c4bde!important">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #7c4bde;">First Case Registered</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><?= date("d F", strtotime($day[date])) ?></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    break;} }*/
-                    ?>
+                        </div>                                                
 
 <?php } ?>
 
