@@ -18,7 +18,7 @@
                                             ?>
                                         <a class="d-flex align-items-center dropdown-item" href="<?= $article['url'] ?>" target="_blank">
                                             <div class="mr-3">
-                                            <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
+                                            <image height="50px" src="<?= $article['urlToImage'] ?>"><!--i class="fas fa-file-alt text-white"></i-->
                                             </div>                                            
                                             <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article['publishedAt'])) ?></span>
                                            <p><?= $article[title] ?></p>
