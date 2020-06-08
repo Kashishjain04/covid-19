@@ -12,7 +12,7 @@ include("includes/header.php")
     <div id="wrapper">
     <?php include('includes/sidebar.php') ?>
         <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
+            <div id="content" >
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
