@@ -14,7 +14,6 @@ include('includes/header.php');
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="wrapper">
-    <?php include('includes/sidebar.php') ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <?php include('includes/nav.php') ?>
