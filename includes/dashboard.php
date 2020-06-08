@@ -36,7 +36,7 @@ $dact = $dconf-($drec+$ddec);
     if($ddec)
         $ddec = "↑ ".$ddec;
     if(!$ddec)
-        $dec = "♥︎";        
+        $ddec = "♥︎";    
     if($dact>0)
         $dact = "↑ ".$dact;
     if($dact<0)
