@@ -12,7 +12,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "Subscription-Key: d021fd3327054aed92179fc56e1e02fb"
+    "Subscription-Key: 3009d4ccc29e4808af1ccc25c69b4d5d"
   ),
 ));
 

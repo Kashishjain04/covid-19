@@ -1,6 +1,6 @@
 <?php include('includes/statedaily.php') ?>
     <div class="row py-5">
-    <div class="col-auto mx-auto" style="max-width: 60%;">
+    <div class="col-auto mx-auto" style="width: min-content;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
       <input type="text" class="bg-light text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
     </div>
@@ -23,7 +23,7 @@
               <?php
             foreach($data[statewise] as $State){
               if($State[state]=="Total"){
-                continue;                
+                continue;
               } 
               $conf = $State['deltaconfirmed'];
               $rec = $State['deltarecovered'];
