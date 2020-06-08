@@ -9,6 +9,11 @@ $tact = $tconf-($trec+$tdec);
 $dconf = $data['statewise'][0]['deltaconfirmed'];
 $drec = $data['statewise'][0]['deltarecovered'];
 $ddec = $data['statewise'][0]['deltadeaths'];
+if($dconf<0){
+$dconf = 0;
+$drec = 0;
+$ddec = 0;
+}
 $dact = $dconf-($drec+$ddec);
     if($dconf)
         $dconf = "↑ ".$dconf;
