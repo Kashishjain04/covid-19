@@ -1,5 +1,4 @@
 <?php include('includes/statedaily.php') ?>
-<?php include('includes/schartscript.php') ?>
     <div class="row py-5">
     <div class="col-auto mx-auto" style="max-width: 60%;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
@@ -29,8 +28,12 @@
               $conf = $State['deltaconfirmed'];
               $rec = $State['deltarecovered'];
               $dec = $State['deltadeaths'];
+              if($conf<0){
+                $conf=0;
+                $rec=0;
+                $dec=0;
+              }
               $act=$conf-($rec+$dec);
-              
             ?>
             <tr>
                 <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>

@@ -5,15 +5,30 @@ $tconf = $data['statewise'][0]['confirmed'];
 $trec = $data['statewise'][0]['recovered'];
 $tdec = $data['statewise'][0]['deaths'];
 $tact = $tconf-($trec+$tdec);
-//$count = count($data['cases_time_series']);
-$dconf = $data['statewise'][0]['deltaconfirmed'];
-$drec = $data['statewise'][0]['deltarecovered'];
-$ddec = $data['statewise'][0]['deltadeaths'];
+$dconf = 0;
+$drec = 0;
+$ddec = 0;
+foreach($data[statewise] as $State){
+    if($State[state]=="Total"){
+      continue;                
+    } 
+    $conf = $State['deltaconfirmed'];
+    $rec = $State['deltarecovered'];
+    $dec = $State['deltadeaths'];
+    if($conf<0){
+      $conf=0;
+      $rec=0;
+      $dec=0;
+    }    
+    $dconf+=$conf;
+    $drec+=$rec;
+    $ddec+=$dec;
+}
 $dact = $dconf-($drec+$ddec);
     if($dconf)
         $dconf = "↑ ".$dconf;
     if(!$dconf)
-        $dconf = "♥︎";
+        $dconf = "♥︎";          
     if($drec)
         $drec = "↑ ".$drec;
     if(!$drec)
@@ -21,13 +36,13 @@ $dact = $dconf-($drec+$ddec);
     if($ddec)
         $ddec = "↑ ".$ddec;
     if(!$ddec)
-        $dec = "♥︎";    
+        $dec = "♥︎";        
     if($dact>0)
         $dact = "↑ ".$dact;
     if($dact<0)
         $dact = "↓ ".abs($dact);
     if(!$dact)
-        $dact = "♥︎";
+        $dact = "♥︎";   
 $cpm = round($tconf/$pop['India']*1000000, 2);
 ?>
 
