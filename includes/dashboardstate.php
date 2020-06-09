@@ -55,7 +55,7 @@ foreach($data as $Key=> $State){
     
     $double = date_diff(date_create($hdate),$today)->format("%a days");
 ?>
-<div class=" mx-auto"style="width: 80%;">
+<div class=" mx-auto"style="width: 90%;">
 <div class="row" style="width: 60%; margin-top: 50px;display: inline-flex;">
                         <div class="col-auto" style="width: 25%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
