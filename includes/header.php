@@ -21,7 +21,7 @@
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=900, shrink-to-fit=no">
-    <meta name="title" content="Covid-19 Pandemic India" />
+    <meta name="title" content="Covid-19 India Complete Tracking" />
     <meta name="keywords" content="cov19india.live covid-19 pandemic coronavirus chart tracking live data doubling rate india state wise state-wise confirmed per million" />
     <meta name="description" content="Track Live status of coronavirus in India with State-wise and District-wise data with chart comparison of last 30 days and analytics like Confirmed per million and Doubling rate is also provided." />
     <meta property="og:type" content="website" />
