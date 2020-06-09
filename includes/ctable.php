@@ -21,8 +21,13 @@
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
 <style> 
-th td{
+th{
   border-radius: 10px;
+}
+    td{
+
+  border-radius: 10px;
+
 }
 </style>
               <?php
