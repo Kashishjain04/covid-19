@@ -8,7 +8,7 @@ $tact = $tconf-($trec+$tdec);
 $dconf = 0;
 $drec = 0;
 $ddec = 0;
-foreach($data[statewise] as $State){
+/*foreach($data[statewise] as $State){
     if($State[state]=="Total"){
       continue;                
     } 
@@ -23,10 +23,15 @@ foreach($data[statewise] as $State){
     $dconf+=$conf;
     $drec+=$rec;
     $ddec+=$dec;
-}
+}*/
+$dconf = $data['statewise'][0]['deltaconfirmed'];
+$drec = $data['statewise'][0]['deltarecovered'];
+$ddec = $data['statewise'][0]['deltadeaths'];
 $dact = $dconf-($drec+$ddec);
-    if($dconf)
+    if($dconf>0)
         $dconf = "↑ ".$dconf;
+    if($dconf<0)
+        $dconf = "↓ ".abs($dconf);
     if(!$dconf)
         $dconf = "♥︎";          
     if($drec)

@@ -28,22 +28,31 @@
               $conf = $State['deltaconfirmed'];
               $rec = $State['deltarecovered'];
               $dec = $State['deltadeaths'];
-              if($conf<0){
+              /*if($conf<0){
                 $conf=0;
                 $rec=0;
                 $dec=0;
-              }
+              }*/
+              if($conf>0)
+                  $conf = "↑ ".$conf;
+              if($conf<0)
+                  $conf = "↓ ".abs($conf);                 
+              if($rec)
+                  $rec = "↑ ".$rec;              
+              if($dec)
+                  $dec = "↑ ".$dec;              
+              if($act>0)
+                  $act = "↑ ".$act;
+              if($act<0)
+                  $act = "↓ ".abs($act);              
               $act=$conf-($rec+$dec);
             ?>
             <tr>
                 <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>
-                <td><div class="col-auto"><?php if($conf){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?=$conf?></span><?php }?><span class="row"><?= $State[confirmed] ?></span></div></td>
-                <td><div class="col-auto"><?php if($act>0){ ?>
-                    <span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↑ <?=$act?> </span><?php }?>
-                    <?php if($act<0){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↓ <?=abs($act)?> </span><?php }?>
-                    <span class="row"><?= $State[active] ?></span></div></td>
-                <td><div class="col-auto"><?php if($rec){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;">↑ <?=$rec?> </span><?php }?><span class="row"><?= $State[recovered] ?></span></div></td>
-                <td><div class="col-auto"><?php if($dec){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;">↑ <?=$dec?> </span><?php }?><span class="row"><?= $State[deaths] ?></span></div></td></div>                
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $State[confirmed] ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($conf){echo $act;}?></span><span class="row"><?= $State[active] ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($conf){echo $rec;}?> </span><span class="row"><?= $State[recovered] ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($conf){echo $dec;}?></span><span class="row"><?= $State[deaths] ?></span></div></td></div>                
             </tr>
             <?php
                 }
@@ -54,5 +63,6 @@
   </div>
                         
               
+
 
 

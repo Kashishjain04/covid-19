@@ -99,7 +99,8 @@ foreach($data[statewise] as $State){
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $cpm ?></span></div>
                                         </div>                                        
                                     </div>
-                        </div>                                                
+                        </div>       
+                        </div>                                         
 
 <?php } ?>
 
