@@ -36,10 +36,14 @@ $dact = $dconf-($drec+$ddec);
         $dconf = "♥︎";          
     if($drec)
         $drec = "↑ ".$drec;
+    if($drec<0)
+        $drec = "↓ ".abs($drec);
     if(!$drec)
         $drec = "♥︎";
     if($ddec)
         $ddec = "↑ ".$ddec;
+    if($ddec<0)
+        $ddec = "↓ ".abs($ddec);
     if(!$ddec)
         $ddec = "♥︎";    
     if($dact>0)

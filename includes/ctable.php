@@ -36,11 +36,15 @@
               if($conf>0)
                   $conf = "↑ ".$conf;
               if($conf<0)
-                  $conf = "↓ ".abs($conf);                 
+                  $conf = "↓ ".abs($conf);
               if($rec)
                   $rec = "↑ ".$rec;              
+              if($rec<0)
+                  $rec = "↓ ".abs($rec);
               if($dec)
                   $dec = "↑ ".$dec;              
+              if($dec<0)
+                  $dec = "↓ ".abs($dec);
               if($act>0)
                   $act = "↑ ".$act;
               if($act<0)
