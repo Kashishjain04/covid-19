@@ -1,11 +1,12 @@
 <?php
-include('includes/sdata.php');
-include('includes/cdata.php');
 $name = $_GET['name'];
 $state = $data1[$name];
 $title = $name;
 $icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
 include('includes/header.php');
+$scode = file_get_contents('includes/statecode.json');
+$scode = json_decode($scode, true);
+include('includes/data.php');
 ?>
 
 <body id="page-top">

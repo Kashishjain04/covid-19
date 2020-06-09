@@ -1,8 +1,10 @@
 <?php 
-$dailydist = file_get_contents('https://api.covid19india.org/districts_daily.json');
-//$dailydist = json_decode($dailydist, true)['districtsDaily'][$name];
 
-//var_dump($dailydist['districtsDaily'][$name]);
+foreach($data as $Key=> $State){
+    //var_dump($State);    
+    if($scode[$Key] != $name){
+        continue;
+    }
 ?>
 <style> 
 td{
@@ -35,24 +37,47 @@ th {
               </tr>
               <?php
               
-            foreach( $state[districtData] as $Key => $District){
-              //$count = count($dailydist[$Key]);
-              //var_dump($dailydist[$Key]);              
+            foreach( $data[$Key]['districts'] as $key => $District){                      
               $dc = $District[delta][confirmed];
               $dr = $District[delta][recovered];
               $dd = $District[delta][deceased];
               $da = $dc-($dr+$dd);
-
+              if($dc>0)
+                  $dc = "↑ ".$dc;
+              if($dc<0)
+                  $dc = "↓ ".abs($dc);
+              if($dr>0)
+                  $dr = "↑ ".$dr;              
+              if($dr<0)
+                  $dr = "↓ ".abs($dr);
+              if($dd>0)
+                  $dd = "↑ ".$dd;              
+              if($dd<0)
+                  $dd = "↓ ".abs($dd);
+              if($da>0)
+                  $da = "↑ ".$da;
+              if($da<0)
+                  $da = "↓ ".abs($da);          
+              
+              $c = $District[total][confirmed];
+              $r = $District[delta][recovered];
+              $d = $District[delta][deceased];
+              $a = $c-($r+$d);
+              if(!$c)
+                $c=0;
+              if(!$r)
+                $r=0;
+              if(!$d)
+                $d=0;
+              if(!$a)
+                $a=0;
             ?>
             <tr>
-            <div class=row><td><?= $Key?></td>
-                <td><div class="col-auto"><?php if($dc){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;">↑ <?= $dc?></span><?php }?><span class="row"><?= $District[confirmed] ?></span></div></td>
-                <td><div class="col-auto"><?php if($da>0){ ?>
-                    <span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↑ <?=$da?> </span><?php }?>
-                    <?php if($da<0){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;">↓ <?=abs($da)?> </span><?php }?>
-                    <span class="row"><?= $District[active] ?></span></div></td>
-                <td><div class="col-auto"><?php if($dr){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;">↑ <?=$dr?> </span><?php }?><span class="row"><?= $District[recovered] ?></span></div></td>
-                <td><div class="col-auto"><?php if($dd){ ?><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;">↑ <?=$dd?> </span><?php }?><span class="row"><?= $District[deceased] ?></span></div></td></div>                                
+            <div class=row><td><?= $key?></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($dc){echo $dc;}?></span><span class="row"><?= $c ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($da){echo $da;}?></span><span class="row"><?= $a ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($dr){echo $dr;}?></span><span class="row"><?= $r ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dd){echo $dd;}?></span><span class="row"><?= $d ?></span></div></td></div>                                
             </tr>
             <?php
                 }
@@ -64,4 +89,4 @@ th {
     </div>    
               
 
-
+              <?php } ?>

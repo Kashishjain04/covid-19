@@ -1,8 +1,10 @@
 <?php 
-include('includes/cdata.php');
 $title = 'Covid-19 Details';
 $icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
-include("includes/header.php") 
+include("includes/header.php"); 
+$scode = file_get_contents('includes/statecode.json');
+$scode = json_decode($scode, true);
+include('includes/data.php');
 ?>
 <body id="page-top">
     <!-- Google Tag Manager (noscript) -->
@@ -15,7 +17,7 @@ include("includes/header.php")
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">India</h3>
+                        <h3 class="text-dark mb-0">India</h3>                        
                     </div>
                         <?php  include('includes/dashboard.php') ?>
                     <?php include('includes/ctable.php') ?>                    

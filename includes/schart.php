@@ -49,23 +49,11 @@
 
 
         <?php 
-$count = count($stdaily);
-    foreach($data['statewise'] as $State){
-      if($State['state'] == $name){              
-        $Key = $count - 93;
-        $c=0;
-        $r=0;        
-        $d=0;
-        for($Key=0; $Key<($count-93); $Key+=3){
-          $c+= $stdaily[$Key][strtolower($State['statecode'])];
-        }
-        for($Key=1; $Key<($count-92); $Key+=3){
-          $r+= $stdaily[$Key][strtolower($State['statecode'])];
-        }
-        for($Key=2; $Key<($count-91); $Key+=3){
-          $d+= $stdaily[$Key][strtolower($State['statecode'])];
-        }
-        $a=$c-($r+$d);
+        foreach($timeseries as $Key=> $State){    
+          if($scode[$Key] != $name){
+              continue;
+          }     
+        $count = count($State);    
 ?>
 
 
@@ -91,20 +79,25 @@ $count = count($stdaily);
     type: 'line', 
     data: {
       labels: [
-        <?php         
-        for($Key= $count-93; $Key<$count; $Key+=3){            
+        <?php 
+        $i=0;        
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;          
             ?>
-          '<?= $stdaily[$Key]['date']?>',
-        <?php  }?>               
+          '<?= date_format(date_create($key),"d-M");?>',
+        <?php }?>                
       ],
       datasets: [{
         data: [
-          <?php         
-        for($Key= $count-93; $Key<$count; $Key+=3){            
-            $c += $stdaily[$Key][strtolower($State['statecode'])];
+          <?php 
+        $i =0;
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;
             ?>
-          '<?= $c?>',
-        <?php  }?>   
+          '<?= $data1['total']['confirmed']?>',
+        <?php }?>
         ],
         lineTension: 0,        
         borderColor: '#ed3838',
@@ -170,20 +163,25 @@ $count = count($stdaily);
     type: 'line',
     data: {
       labels: [
-        <?php         
-        for($Key= $count-93; $Key<$count; $Key+=3){            
+        <?php 
+        $i=0;        
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;          
             ?>
-          '<?= $stdaily[$Key]['date']?>',
-        <?php  }?>               
+          '<?= date_format(date_create($key),"d-M");?>',
+        <?php }?>                
       ],
       datasets: [{
         data: [
-          <?php         
-        for($Key= $count-93; $Key<$count; $Key+=3){            
-            $a += ($stdaily[$Key][strtolower($State['statecode'])]-(($stdaily[$Key+1][strtolower($State['statecode'])])+($stdaily[$Key+2][strtolower($State['statecode'])])));
+          <?php 
+        $i =0;
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;
             ?>
-          '<?= $a?>',
-        <?php  }?>   
+          '<?= $data1['total']['confirmed']-($data1['total']['recovered']+$data1['total']['deceased'])?>',
+        <?php }?>   
         ],
         lineTension: 0,        
         borderColor: '#1579f6',
@@ -251,20 +249,25 @@ $count = count($stdaily);
     type: 'line',
     data: {
       labels: [
-        <?php         
-        for($Key= $count-92; $Key<$count; $Key+=3){            
+        <?php 
+        $i=0;        
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;          
             ?>
-          '<?= $stdaily[$Key]['date']?>',
-        <?php  }?>               
+          '<?= date_format(date_create($key),"d-M");?>',
+        <?php }?>                
       ],
       datasets: [{
         data: [
-          <?php         
-        for($Key= $count-92; $Key<$count; $Key+=3){            
-            $r += $stdaily[$Key][strtolower($State['statecode'])];
+          <?php 
+        $i =0;
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;
             ?>
-          '<?= $r?>',
-        <?php  }?>   
+          '<?= $data1['total']['confirmed']?>',
+        <?php }?> 
         ],
         lineTension: 0,        
         borderColor: '#4ca746',
@@ -330,20 +333,25 @@ $count = count($stdaily);
     type: 'line',
     data: {
       labels: [
-        <?php         
-        for($Key= $count-91; $Key<$count; $Key+=3){            
+        <?php 
+        $i=0;        
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;          
             ?>
-          '<?= $stdaily[$Key]['date']?>',
-        <?php  }?>               
+          '<?= date_format(date_create($key),"d-M");?>',
+        <?php }?>                
       ],
       datasets: [{
         data: [
-          <?php         
-        for($Key= $count-91; $Key<$count; $Key+=3){            
-            $d += $stdaily[$Key][strtolower($State['statecode'])];
+          <?php 
+        $i =0;
+        foreach( $State as $key => $data1){
+          if(($count-$i++)>31)
+            continue;
             ?>
-          '<?= $d?>',
-        <?php  }?>   
+          '<?= $data1['total']['confirmed']?>',
+        <?php }?>  
         ],
         lineTension: 0,       
         borderColor: '#6c757c',
@@ -407,4 +415,4 @@ $count = count($stdaily);
   })
 }())
 </script>
-<?php };}?>
+<?php }?>

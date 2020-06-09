@@ -1,4 +1,11 @@
-<?php include('includes/statedaily.php') ?>
+<style> 
+th{
+  border-radius: 10px;
+}
+td{
+  border-radius: 10px;
+}
+</style>
     <div class="row py-5">
   <div class="col-auto mx-auto" style="width: 90%;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
@@ -20,19 +27,15 @@
               <tr class="warning no-result">
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
-<style> 
-th td{
-  border-radius: 10px;
-}
-</style>
               <?php
-            foreach($data[statewise] as $State){
-              if($State[state]=="Total"){
+            foreach($data as $Key => $State){
+              if($Key=="TT"){
                 continue;
               } 
-              $conf = $State['deltaconfirmed'];
-              $rec = $State['deltarecovered'];
-              $dec = $State['deltadeaths'];                            
+              $conf = $State['delta']['confirmed'];
+              $rec = $State['delta']['recovered'];
+              $dec = $State['delta']['deceased'];    
+              $act=$conf-($rec+$dec);                        
               if($conf>0)
                   $conf = "↑ ".$conf;
               if($conf<0)
@@ -48,20 +51,31 @@ th td{
               if($act>0)
                   $act = "↑ ".$act;
               if($act<0)
-                  $act = "↓ ".abs($act);  
-
-              $act=$conf-($rec+$dec);
+                  $act = "↓ ".abs($act);          
+              
+              $tconf = $State['total']['confirmed'];
+              $trec = $State['total']['recovered'];
+              $tdec = $State['total']['deceased'];
+              $tact = $tconf-($trec+$tdec);
+              if(!$tconf)
+                $tconf=0;
+              if(!$trec)
+                $trec=0;
+              if(!$tdec)
+                $tdec=0;
+              if(!$tact)
+                $tact=0;
             ?>
-            <?php if($State[state]=="State Unassigned"){?>
+            <?php if($Key=="UN"){?>
             <tr class="clickable" >
             <?php } else{?>
-            <tr class="clickable"  onclick="window.location='state.php?name=<?= $State[state]?>'">
+            <tr class="clickable"  onclick="window.location='state.php?name=<?= $scode[$Key]?>'">
             <?php }?>
-                <div class=row><td><?= $State[state] ?></td>
-                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $State[confirmed] ?></span></div></td>
-                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row"><?= $State[active] ?></span></div></td>
-                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row"><?= $State[recovered] ?></span></div></td>
-                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row"><?= $State[deaths] ?></span></div></td></div>                
+                <div class=row><td><?= $scode[$Key] ?></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $tconf ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row"><?= $tact ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row"><?= $trec ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row"><?= $tdec ?></span></div></td></div>                
             </tr>             
             <?php
                 }
@@ -70,7 +84,3 @@ th td{
       </div>
       </div>
   </div>           
-              
-
-
-

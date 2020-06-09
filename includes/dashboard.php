@@ -1,32 +1,16 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-$tconf = $data['statewise'][0]['confirmed'];
-$trec = $data['statewise'][0]['recovered'];
-$tdec = $data['statewise'][0]['deaths'];
+$tconf = $data['TT']['total']['confirmed'];
+$trec = $data['TT']['total']['recovered'];
+$tdec = $data['TT']['total']['deceased'];
 $tact = $tconf-($trec+$tdec);
 $dconf = 0;
 $drec = 0;
 $ddec = 0;
-/*foreach($data[statewise] as $State){
-    if($State[state]=="Total"){
-      continue;                
-    } 
-    $conf = $State['deltaconfirmed'];
-    $rec = $State['deltarecovered'];
-    $dec = $State['deltadeaths'];
-    if($conf<0){
-      $conf=0;
-      $rec=0;
-      $dec=0;
-    }    
-    $dconf+=$conf;
-    $drec+=$rec;
-    $ddec+=$dec;
-}*/
-$dconf = $data['statewise'][0]['deltaconfirmed'];
-$drec = $data['statewise'][0]['deltarecovered'];
-$ddec = $data['statewise'][0]['deltadeaths'];
+$dconf = $data['TT']['delta']['confirmed'];
+$drec = $data['TT']['delta']['recovered'];
+$ddec = $data['TT']['delta']['deceased'];
 $dact = $dconf-($drec+$ddec);
     if($dconf>0)
         $dconf = "↑ ".$dconf;
@@ -55,17 +39,17 @@ $dact = $dconf-($drec+$ddec);
 $cpm = round($tconf/$pop['India']*1000000, 2);
 $half = $tconf/2;
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
-foreach($data['cases_time_series'] as $check){
-    if($check['totalconfirmed']>=$half){
-        $hdate = $check['date'];
+foreach($timeseries['TT'] as $Key => $check){    
+    if($check['total']['confirmed']>=$half){        
+        $hdate = $Key;
         break;
         };
     }
 $double = date_diff(date_create($hdate), $today)->format("%a days");
 ?>
-
-                    <div class="row mx-auto" style="width: 80%; margin-top: 50px;">
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">
+                <div class=" mx-auto"style="width: 80%;">
+                    <div class="row" style="width: 60%; margin-top: 50px;display: inline-flex;">                    
+                        <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="color: #ed3838;">Confirmed</span></div>
@@ -74,7 +58,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                                                                                                  
                                     </div>
                         </div>
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">                                
+                        <div class="col-auto" style="width: 24%; text-align: center;">                                
                                 <div class="row align-items-center no-gutters">                                   
                                         <div class="col-auto">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: #1579f6;">Active</span></div>
@@ -84,7 +68,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                                                                                                  
                                 </div>                            
                         </div>
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">                                
+                        <div class="col-auto" style="width: 24%; text-align: center;">                                
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
@@ -94,7 +78,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                        
                                     </div>                                
                         </div>
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">
+                        <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
@@ -104,7 +88,9 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                        
                                     </div>
                         </div>
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">
+                        </div>
+                        <div class="row" style="width: 40%; margin-top: 50px; float: right; display: inline-flex;">
+                        <div class="col-auto" style="width: 33%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #ef7c39;">doubling rate</span></div>
@@ -112,7 +98,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                        
                                     </div>                       
                         </div>
-                        <div class="col-auto" style="width: 16.6%; text-align: center;">
+                        <div class="col-auto" style="width: 33%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #7c4bde;">confirmed per million</span></div>
@@ -120,5 +106,16 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                         </div>                                        
                                     </div>                       
                         </div>                                            
+                        <div class="col-auto" style="width: 33%; text-align: center;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">First Case on</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= date_format(date_create(array_key_first($timeseries['TT'])), "d-M") ?></span></div>
+                                        </div>                                        
+                                    </div>                       
+                        </div>
+                        </div>    
+                        </div>                                        
                     </div>
+                </div>
 

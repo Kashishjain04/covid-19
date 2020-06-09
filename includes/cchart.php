@@ -1,11 +1,6 @@
 <?php 
 
-$count = 0;
-foreach($data['cases_time_series'] as $check){
-  if($check['date'])
-    $count++;
-}
-
+$count = count($timeseries['TT']);
 ?>
 <div class="row py-5">
   <div class="col-lg-5 mx-auto" style="max-width: 50%;">
@@ -77,22 +72,22 @@ foreach($data['cases_time_series'] as $check){
       labels: [
         <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
-            continue;
+            continue;          
             ?>
-          '<?= $data1['date']?>',
+          '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
       datasets: [{
         data: [
           <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
             continue;
             ?>
-          '<?= $data1['totalconfirmed']?>',
+          '<?= $data1['total']['confirmed']?>',
         <?php }?>   
         ],
         lineTension: 0,        
@@ -160,24 +155,24 @@ foreach($data['cases_time_series'] as $check){
     data: {
       labels: [
         <?php 
-        $i =0;
-        foreach( $data['cases_time_series'] as $data1){
-          if(($count-$i++)>31)
+        $i =0;        
+        foreach( $timeseries['TT'] as $Key => $data1){          
+          if(($count-$i++)>31)          
             continue;
             ?>
-          '<?= $data1['date']?>',
+          '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
       datasets: [{
         data: [
           <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
-            continue;
+            continue;            
             ?>
-          '<?= $data1['totalconfirmed']-($data1['totalrecovered']+$data1['totaldeceased'])?>',
-        <?php }?>   
+          '<?= $data1['total']['confirmed']-($data1['total']['recovered']+$data1['total']['deceased'])?>',
+        <?php }?>           
         ],
         lineTension: 0,        
         borderColor: '#1579f6',
@@ -247,23 +242,23 @@ foreach($data['cases_time_series'] as $check){
       labels: [
         <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
             continue;
             ?>
-          '<?= $data1['date']?>',
+          '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
       datasets: [{
         data: [
           <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
             continue;
             ?>
-          '<?= $data1['totalrecovered']?>',
-        <?php }?>   
+          '<?= $data1['total']['recovered']?>',
+        <?php }?>      
         ],
         lineTension: 0,        
         borderColor: '#4ca746',
@@ -331,23 +326,23 @@ foreach($data['cases_time_series'] as $check){
       labels: [
         <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
             continue;
             ?>
-          '<?= $data1['date']?>',
+          '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
       datasets: [{
         data: [
           <?php 
         $i =0;
-        foreach( $data['cases_time_series'] as $data1){
+        foreach( $timeseries['TT'] as $Key => $data1){
           if(($count-$i++)>31)
             continue;
             ?>
-          '<?= $data1['totaldeceased']?>',
-        <?php }?>   
+          '<?= $data1['total']['deceased']?>',
+        <?php }?>     
         ],
         borderColor: '#6c757c',
             backgroundColor: 'transparent',
