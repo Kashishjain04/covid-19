@@ -50,8 +50,12 @@
 
               $act=$conf-($rec+$dec);
             ?>
+            <?php if($State[state]=="State Unassigned"){?>
+            <tr class="clickable" >
+            <?php } else{?>
             <tr class="clickable"  onclick="window.location='state.php?name=<?= $State[state]?>'">
-                <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>
+            <?php }?>
+                <div class=row><td><?= $State[state] ?></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $State[confirmed] ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row"><?= $State[active] ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row"><?= $State[recovered] ?></span></div></td>
