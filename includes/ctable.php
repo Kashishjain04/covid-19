@@ -7,7 +7,7 @@
       <span class="counter pull-right"></span>
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
       <div class="table-responsive results">
-    <table id="example" style="width: 100%;" class="table table-striped table-bordered">
+    <table id="example" style="width: 100%;" class="table table-hover table-striped table-bordered">
               <thead class="bill-header cs">
                 <tr>
                 <th>State/UT</th>
@@ -20,6 +20,9 @@
               <tr class="warning no-result">
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
+           
+
+</style>
               <?php
             foreach($data[statewise] as $State){
               if($State[state]=="Total"){
@@ -47,21 +50,20 @@
 
               $act=$conf-($rec+$dec);
             ?>
-            <tr>
+            <tr class="clickable"  onclick="window.location='state.php?name=<?= $State[state]?>'">
                 <div class=row><td><a style="color: #858796; text-decoration: none;"<?php if($State[state]!="State Unassigned"){ ?> href="state.php?name=<?= $State[state];}?>"><?= $State[state] ?></a></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $State[confirmed] ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row"><?= $State[active] ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row"><?= $State[recovered] ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row"><?= $State[deaths] ?></span></div></td></div>                
-            </tr>
+            </tr>             
             <?php
                 }
             ?>
     </table>              
       </div>
       </div>
-  </div>
-                        
+  </div>           
               
 
 
