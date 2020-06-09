@@ -2,12 +2,12 @@
     <div class="row py-5">
   <div class="col-auto mx-auto" style="width: 90%;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
-      <input type="text" class="bg-light text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
+      <input type="text" class=" text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
     </div>
       <span class="counter pull-right"></span>
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
       <div class="table-responsive results">
-    <table id="example" style="width: 100%;" class="table table-hover table-striped table-bordered">
+    <table id="example" style="width: 100%; border-collapse: inherit;" class="table table-hover table-sm table-striped table-bordered">
               <thead class="bill-header cs">
                 <tr>
                 <th>State/UT</th>
@@ -20,8 +20,10 @@
               <tr class="warning no-result">
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
               </tr>
-           
-
+<style> 
+th td{
+  border-radius: 10px;
+}
 </style>
               <?php
             foreach($data[statewise] as $State){
