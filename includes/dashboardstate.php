@@ -91,8 +91,8 @@ foreach($data as $Key=> $State){
                                         <div class="col-auto"> 
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #6c757c87; font-size: medium;"><?= $dec ?></span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $trec ?></span></div>
-                                            <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round(($trec/$State['total'][confirmed]*100), 2) ."%)"; ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $tdec ?></span></div>
+                                            <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round(($tdec/$State['total'][confirmed]*100), 2) ."%)"; ?></span></div>
                                         </div>                                        
                                     </div>
                         </div>
