@@ -16,10 +16,10 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 $data = json_decode($response, true);
-arsort($data);
-foreach($data as $state){
-  krsort($state['districts']);
+foreach($data as $key=> $state){
+  $sort[$key] = $state['total']['confirmed'];
 }
+array_multisort($sort, SORT_DESC, $data);
 curl_close($curl);
 
 $curl = curl_init();
