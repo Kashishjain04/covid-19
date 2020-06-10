@@ -10,9 +10,9 @@ td{
   <div class="col-auto mx-auto" style="width: 90%;">
     <div style="margin-top: 10px; margin-bottom: 0px;" class="form-group pull-right col-lg-4">
       <input type="text" class=" text-dark search" style="border: 1px solid #aaa; height: 40px; width: 100%; border-radius: 10px;" placeholder="Search by typing here.." />
-    </div>
-    <span class="mx-2">Click the state for more data..</span>
-      <span class="counter pull-right"></span>
+    </div>  
+      <div class="counter pull-right"></div>
+      <div class="mx-2 row py-1 px-3 bill-header cs" style="display: inline-block; border-radius: 10px;">Click the state for more data...</div>
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
       <div class="table-responsive results">
     <table id="example" style="width: 100%; border-collapse: inherit;" class="table table-hover table table-striped table-bordered">
