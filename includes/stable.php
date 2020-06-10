@@ -60,8 +60,8 @@ th {
                   $da = "↓ ".abs($da);          
               
               $c = $District[total][confirmed];
-              $r = $District[delta][recovered];
-              $d = $District[delta][deceased];
+              $r = $District[total][recovered];
+              $d = $District[total][deceased];
               $a = $c-($r+$d);
               if(!$c)
                 $c=0;
