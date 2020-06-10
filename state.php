@@ -6,6 +6,8 @@ $icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
 include('includes/header.php');
 $scode = file_get_contents('includes/statecode.json');
 $scode = json_decode($scode, true);
+$map = file_get_contents('includes/maps.json');
+$map = json_decode($map, true);
 include('includes/data.php');
 ?>
 
@@ -20,7 +22,13 @@ include('includes/data.php');
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0"><?php echo $name ?></h3></div>
+                    <div class="card shadow py-2 mx-auto">
+                        <div class="card-body row mx-4"  style="font-family: me ; font-size: 30px; letter-spacing: 2px; align-items: center; ">
+                            <image height="40px" src=<?= $map[$name]?>>
+                          <h3 class="text-dark mb-0 mx-2"><?php echo$name ?></h3>                        
+                        </div>
+                    </div>
+                        </div>
                         <?php  include('includes/dashboardstate.php') ?>
                     <?php include('includes/stable.php') ?>
                     <?php include('includes/schart.php') ?>  

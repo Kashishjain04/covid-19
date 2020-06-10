@@ -34,4 +34,15 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <link rel="icon" href="https://image.flaticon.com/icons/png/512/2785/2785819.png">
     <script data-ad-client="ca-pub-4358811063308681" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <style>
+       @font-face {
+            font-family: 'me';
+            src:url('assets/Dreamwood-DEMO-Regular.ttf.woff') format('woff'),
+                url('assets/Dreamwood-DEMO-Regular.ttf.svg#Dreamwood-DEMO-Regular') format('svg'),
+                url('assets/Dreamwood-DEMO-Regular.ttf.eot'),
+                url('assets/Dreamwood-DEMO-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>

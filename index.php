@@ -17,7 +17,13 @@ include('includes/data.php');
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">India</h3>                        
+                    <div class="card shadow py-2 mx-auto">
+                        <div class="card-body row mx-4"  style="font-family: me ; letter-spacing: 2px; align-items: center; ">
+                            <image height="50px" src="https://img.freepik.com/free-vector/watercolor-map-indian-flag_1035-1099.jpg?size=338&ext=jpg">
+                          <h1 class="text-dark mb-0">India</h1>                        
+                        </div>
+                    </div>
+                        
                     </div>
                         <?php  include('includes/dashboard.php') ?>
                     <?php include('includes/ctable.php') ?>                    
