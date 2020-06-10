@@ -22,7 +22,7 @@ th {
     <span class="counter pull-right"></span>
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
           <div class="table-responsive results">
-    <table id="example" style="width:100%; border-collapse: inherit;" class="table table-sm table-striped table-bordered">
+    <table id="example" style="width:100%; border-collapse: inherit;" class="table table table-striped table-bordered">
               <thead class="bill-header cs">
                 <tr>
                 <th></th>
