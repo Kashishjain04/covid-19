@@ -12,6 +12,9 @@ include('includes/data.php');
 ?>
 
 <body id="page-top">
+    <meta name="title" content="Covid-19-<?= $name ?> Complete analysis" />
+    <meta name="keywords" content="cov19india.live <?= $name?> coronavirus status district wise charts first case in <?= $name?>covid-19 pandemic coronavirus chart tracking live data doubling rate india state wise state-wise confirmed per million" />
+    <meta name="description" content="Track Live status of coronavirus in <?= $name?> with District-wise data with chart comparison of last 30 days and miscellaneous data like Confirmed per million and Doubling rate." />
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL3N95B"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
