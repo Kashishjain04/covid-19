@@ -5,9 +5,7 @@ $tconf = $data['TT']['total']['confirmed'];
 $trec = $data['TT']['total']['recovered'];
 $tdec = $data['TT']['total']['deceased'];
 $tact = $tconf-($trec+$tdec);
-$dconf = 0;
-$drec = 0;
-$ddec = 0;
+
 $dconf = $data['TT']['delta']['confirmed'];
 $drec = $data['TT']['delta']['recovered'];
 $ddec = $data['TT']['delta']['deceased'];
@@ -15,9 +13,7 @@ $dact = $dconf-($drec+$ddec);
     if($dconf>0)
         $dconf = "↑ ".$dconf;
     if($dconf<0)
-        $dconf = "↓ ".abs($dconf);
-    if(!$dconf)
-        $dconf = "♥︎";          
+        $dconf = "↓ ".abs($dconf);    
     if($drec)
         $drec = "↑ ".$drec;
     if($drec<0)
@@ -35,7 +31,11 @@ $dact = $dconf-($drec+$ddec);
     if($dact<0)
         $dact = "↓ ".abs($dact);
     if(!$dact)
-        $dact = "♥︎";   
+        $dact = "♥︎";  
+    if($dconf<=0){
+        $dconf = "♥︎";           
+        $dact = "♥︎";
+    }
 $cpm = round($tconf/$pop['India']*1000000, 2);
 $half = $tconf/2;
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
