@@ -30,7 +30,7 @@ td{
               </tr>
               <?php
             foreach($data as $Key => $State){
-              if($Key=="TT"||$Key=="UN"){
+              if($Key=="TT"){
                 continue;
               } 
               $conf = $State['delta']['confirmed'];
