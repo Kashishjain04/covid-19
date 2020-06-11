@@ -16,8 +16,7 @@ $dact = $dconf-($drec+$ddec);
         $dconf = "↑ ".$dconf;
     if($dconf<0)
         $dconf = "↓ ".abs($dconf);
-    if(!$dconf)
-        $dconf = "♥︎";          
+
     if($drec)
         $drec = "↑ ".$drec;
     if($drec<0)
@@ -36,6 +35,13 @@ $dact = $dconf-($drec+$ddec);
         $dact = "↓ ".abs($dact);
     if(!$dact)
         $dact = "♥︎";   
+    if($dconf<=0){
+
+        $dconf = "♥︎";          
+
+        $dact = "♥︎";
+
+        }
 $cpm = round($tconf/$pop['India']*1000000, 2);
 $half = $tconf/2;
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
