@@ -15,14 +15,14 @@ include('includes/nav.php');
       <div class="container">
         <div class="row align-items-stretch retro-layout-2">
           <div class="col-md-4">
-            <a <?= $ndata1['articles'][0]['url']?> class="h-entry mb-30 v-height gradient" style="background-image: url('<?= $ndata1['articles'][0]['urlToImage']?>');">
+            <a href="<?= $ndata1['articles'][0]['url']?>" class="h-entry mb-30 v-height gradient" style="background-image: url('<?= $ndata1['articles'][0]['urlToImage']?>');">
               
               <div class="text">
                 <h2><?= $ndata1['articles'][0]['title']?></h2>
                 <span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($ndata1['articles'][0]['publishedAt']))?></span>
               </div>
             </a>
-            <a <?= $ndata1['articles'][1]['url']?> class="h-entry v-height gradient" style="background-image: url('<?= $ndata1['articles'][1]['urlToImage']?>');">
+            <a href="<?= $ndata1['articles'][1]['url']?>" class="h-entry v-height gradient" style="background-image: url('<?= $ndata1['articles'][1]['urlToImage']?>');">
               
               <div class="text">
                 <h2><?= $ndata1['articles'][1]['title']?></h2>
@@ -31,7 +31,7 @@ include('includes/nav.php');
             </a>
           </div>
           <div class="col-md-4">
-            <a <?= $ndata1['articles'][2]['url']?> class="h-entry img-5 h-100 gradient" style="background-image: url('<?= $ndata1['articles'][2]['urlToImage']?>');">
+            <a href="<?= $ndata1['articles'][2]['url']?>" class="h-entry img-5 h-100 gradient" style="background-image: url('<?= $ndata1['articles'][2]['urlToImage']?>');">
               
             <div class="text">
                 <h2><?= $ndata1['articles'][2]['title']?></h2>
@@ -40,7 +40,7 @@ include('includes/nav.php');
             </a>
           </div>
           <div class="col-md-4">
-            <a <?= $ndata1['articles'][3]['url']?> class="h-entry mb-30 v-height gradient" style="background-image: url('<?= $ndata1['articles'][3]['urlToImage']?>');">
+            <a href="<?= $ndata1['articles'][3]['url']?>" class="h-entry mb-30 v-height gradient" style="background-image: url('<?= $ndata1['articles'][3]['urlToImage']?>');">
               
             <div class="text">
                 <h2><?= $ndata1['articles'][3]['title']?></h2>
@@ -71,16 +71,13 @@ include('includes/nav.php');
             foreach($ndata1['articles'] as $Key => $article){
               if($Key<5){
                 continue;
-              }
-              if($article['content']){
-              $link = '<a href="article.php?id=<?= $Key?>">Read More</a>';
-              }
+              }              
           ?>
           <div class="col-lg-4 mb-4">
             <div class="entry2">
-              <a href="single.html"><img src="<?php if($article['urlToImage']){echo $article['urlToImage'];} else{echo "https://miro.medium.com/max/1200/1*cEaeMuTvINqIgyYQMSJWUA.jpeg";}?>" alt="Image" class="img-fluid rounded"></a>
+              <a href="<?= $article['url']?>"><img src="<?php if($article['urlToImage']){echo $article['urlToImage'];} else{echo "https://miro.medium.com/max/1200/1*cEaeMuTvINqIgyYQMSJWUA.jpeg";}?>" alt="Image" class="img-fluid rounded"></a>
               <div class="excerpt">              
-              <h2><a href="single.html"><?= $article['title']?></a></h2>
+              <h2><a href="<?= $article['url']?>"><?= $article['title']?></a></h2>
               <div class="post-meta align-items-center text-left clearfix">                                
                 <span><?= date("d-m-Y H:i", strtotime($article['publishedAt']))?></span>
               </div>
