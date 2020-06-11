@@ -12,6 +12,13 @@ td{
 }
 th {
   border-radius: 10px;
+  position: sticky; 
+  top: 0;  
+  background: #8497ab;
+  color: #fff;
+  z-index: 10;
+  font-size: 12px;
+  text-align: center;
 }
 </style>
   <div class="row py-5">

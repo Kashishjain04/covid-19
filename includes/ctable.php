@@ -1,6 +1,13 @@
 <style> 
-th{
+th {
   border-radius: 10px;
+  position: sticky; 
+  top: 0;  
+  background: #8497ab;
+  color: #fff;
+  z-index: 10;
+  font-size: 12px;
+  text-align: center;
 }
 td{
   border-radius: 10px;
@@ -15,15 +22,15 @@ td{
       <div class="mx-2 row py-1 px-3 bill-header cs" style="display: inline-block; border-radius: 10px;">Click the state for more data...</div>
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
       <div class="table-responsive results">
-    <table id="example" style="width: 100%; border-collapse: inherit;" class="table table-hover table table-striped table-bordered">
-              <thead class="bill-header cs">
+    <table id="example" style="width: 100%; border-collapse: inherit;" class="table table-hover table table-striped table-bordered">            
+              <thead>              
                 <tr>
                 <th>State/UT</th>
                 <th>Confirmed</th>
                 <th>Active</th>
                 <th>Recovered</th>
                 <th>Deceased</th> 
-                </tr>
+                </tr>                          
               </thead>
               <tr class="warning no-result">
                 <td colspan="12"><i class="fa fa-warning"></i>  No Result !!!</td>
