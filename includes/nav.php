@@ -17,8 +17,8 @@
                                             <div class="mr-3">
                                             <image height="50px" src="<?= $article['Image'][0]['src'] ?>"><!--i class="fas fa-file-alt text-white"></i-->
                                             </div>                                            
-                                            <div><span class="small text-gray-500"><?= "<b>".$article["Field Item 2"][0]['text']."</b><br>".$article["Field Item 3"][0]['text'] ?></span>
-                                           <p><?= $article[title] ?></p>
+                                            <div><span class="small text-gray-500"><?= $article["Field Item 1"][0]['text'] ?></span>
+                                           <p><?= "<b>".$article["Field Item 2"][0]['text']."</b><br>".$article["Field Item 3"][0]['text'] ?></p>
                                            <span class="small float-right text-gray-500">- 
                                             </div>                                            
                                             </a>
