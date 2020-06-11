@@ -1,6 +1,6 @@
 <?php 
 $title = 'Covid-19 Details';
-$icon = 'https://image.flaticon.com/icons/png/512/2781/2781395.png';
+$icon = 'https://image.flaticon.com/icons/png/512/2785/2785819.png';
 include("includes/header.php"); 
 $scode = file_get_contents('includes/statecode.json');
 $scode = json_decode($scode, true);

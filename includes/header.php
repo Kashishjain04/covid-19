@@ -30,10 +30,10 @@
     
     <link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
     <link rel="preload" href="/assets/css/search.css" as="style">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/search.css">
-    <link rel="icon" href="https://image.flaticon.com/icons/png/512/2785/2785819.png">
+    <link rel="icon" href="<?= $icon?>">
     <script data-ad-client="ca-pub-4358811063308681" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <style>
        @font-face {
@@ -46,4 +46,3 @@
             font-style: normal;
         }
     </style>
-</head>
