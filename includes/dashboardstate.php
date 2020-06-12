@@ -9,7 +9,7 @@ foreach($data as $Key=> $State){
     $conf = $State['delta']['confirmed'];
     $rec = $State['delta']['recovered'];
     $dec = $State['delta']['deceased'];
-    $conf = 10;
+  
     $act = $conf-($rec+$dec);
     if($conf>0)
         $conf = "↑ ".$conf;
