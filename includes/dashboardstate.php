@@ -149,7 +149,7 @@ foreach($data as $Key=> $State){
                         <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
-                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">First Case on</span></div>
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #e63f86;">First Case on</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= date_format(date_create(array_key_first($history)), "d-M") ?></span></div>
                                         </div>                                        
                                     </div>                       
