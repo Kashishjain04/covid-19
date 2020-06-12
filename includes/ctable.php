@@ -21,7 +21,7 @@ td{
     <table id="example" style="width: 100%; border-collapse: inherit;" class="table table-hover table table-striped table-bordered">            
               <thead>              
                 <tr>
-                <th>State/UT</th>
+                <th style="width: 35%;">State/UT</th>
                 <th>Confirmed</th>
                 <th>Active</th>
                 <th>Recovered</th>
