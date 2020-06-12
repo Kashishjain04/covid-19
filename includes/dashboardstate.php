@@ -1,7 +1,17 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-
+$test = file_get_contents('https://api.covid19india.org/state_test_data.json');
+$test = json_decode($test, true)['states_tested_data'];
+$tested = array();
+$date = array();
+foreach($test as $tdata){
+    if($tdata['state']==$name){
+        array_push($tested, $tdata['totaltested']);
+        array_push($date, $tdata['updatedon']);
+    }
+}
+//var_dump($test);
 foreach($data as $Key=> $State){    
     if($scode[$Key] != $name){
         continue;
@@ -59,8 +69,8 @@ foreach($data as $Key=> $State){
     
     $double = date_diff(date_create($hdate),$today)->format("%a days");
 ?>
-<div class=" mx-auto"style="width: 90%;">
-<div class="row" style="width: 60%; margin-top: 50px;display: inline-flex;">
+<div class=" mx-auto"style="width: 100%;">
+<div class="row" style="width: 50%; margin-top: 50px;display: inline-flex;">
                         <div class="col-auto" style="width: 25%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">                                            
@@ -101,8 +111,8 @@ foreach($data as $Key=> $State){
                                     </div>
                         </div>
     </div>
-                        <div class="row" style="width: 40%; margin-top: 50px; float: right; display: inline-flex;">
-                        <div class="col-auto" style="width: 33%; text-align: center;">
+                        <div class="row" style="width: 50%; margin-top: 50px; float: right; display: inline-flex;">
+                        <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #ef7c39;">doubling rate</span></div>
@@ -110,21 +120,33 @@ foreach($data as $Key=> $State){
                                         </div>                                        
                                     </div>                       
                         </div>
-                        <div class="col-auto" style="width: 33%; text-align: center;">
+                        <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto"> 
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #7c4bde;">confirmed per million</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= $cpm ?></span></div>
                                         </div>                                        
                                     </div>
-                        </div>  
+                        </div>
+                        <?php if($tested){?>                      
+                        <div class="col-auto" style="width: 24%; text-align: center;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-auto">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">Total Tested</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= end($tested) ?></span></div>
+                                            <?php $date= date_format(date_create(end($date)), "m-d-Y")?>
+                                            <div style="font-size: 12px;"><span>As of <?= date("d-M", strtotime($date)) ?></span></div>
+                                        </div>                                        
+                                    </div>                       
+                        </div>
+                        <?php }?>                        
                         <?php 
                         foreach($timeseries as $Key=> $history){    
                             if($scode[$Key] != $name){
                                 continue;
                             }   
                         ?> 
-                        <div class="col-auto" style="width: 33%; text-align: center;">
+                        <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">First Case on</span></div>
