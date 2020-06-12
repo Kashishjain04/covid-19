@@ -12,8 +12,8 @@ $ddec = $data['TT']['delta']['deceased'];
 $dact = $dconf-($drec+$ddec);
     if($dconf>0)
         $dconf = "↑ ".$dconf;
-    if($dconf<0)
-        $dconf = "↓ ".abs($dconf);    
+    if(!$dconf)
+        $dconf = "♥︎";            
     if($drec)
         $drec = "↑ ".$drec;
     if($drec<0)
@@ -31,13 +31,11 @@ $dact = $dconf-($drec+$ddec);
     if($dact<0)
         $dact = "↓ ".abs($dact);
     if(!$dact)
-        $dact = "♥︎";  
-    if($dconf <= 0){
+        $dact = "♥︎"; 
+    if($dconf < 0){
         $dconf = "♥︎";           
-        $dact = "♥︎";
-        $ddec = "♥︎";
-        $drec = "♥︎";
-    }
+        $dact = " <br>";        
+    }    
 $cpm = round($tconf/$pop['India']*1000000, 2);
 $half = $tconf/2;
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 

@@ -9,10 +9,11 @@ foreach($data as $Key=> $State){
     $conf = $State['delta']['confirmed'];
     $rec = $State['delta']['recovered'];
     $dec = $State['delta']['deceased'];
+    $conf = 10;
     $act = $conf-($rec+$dec);
-    if($conf)
+    if($conf>0)
         $conf = "↑ ".$conf;
-    else
+    if(!$conf)
         $conf = "♥︎";
     if($rec)
         $rec = "↑ ".$rec;
@@ -29,6 +30,10 @@ foreach($data as $Key=> $State){
     if(!$act){
         $act = "♥︎";
     }
+    if($conf < 0){
+        $conf = "♥︎";           
+        $act = "<br>";        
+    } 
     $tconf = $State['total']['confirmed'];
     $trec = $State['total']['recovered'];
     $tdec = $State['total']['deceased'];
