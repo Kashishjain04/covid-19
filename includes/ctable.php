@@ -72,7 +72,7 @@ td{
             <?php } else{?>
             <tr class="clickable"  onclick="window.location='state.php?name=<?= $scode[$Key]?>'">
             <?php }?>
-                <div class=row><td><?= $scode[$Key] ?></td>
+                <div class="row"><td style="font-size: x-large; text-align: center;"><b><?= $scode[$Key] ?></b></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row"><?= $tconf ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row"><?= $tact ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row"><?= $trec ?></span></div></td>

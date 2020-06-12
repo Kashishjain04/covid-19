@@ -73,7 +73,7 @@ th {
                 $a=0;
             ?>
             <tr>
-            <div class=row><td><?= $key?></td>
+            <div class=row><td style="font-size: x-large; text-align: center;"><b><?= $key?></b></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($dc){echo $dc;}?></span><span class="row"><?= $c ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($da){echo $da;}?></span><span class="row"><?= $a ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($dr){echo $dr;}?></span><span class="row"><?= $r ?></span></div></td>
