@@ -6,7 +6,8 @@ th {
   background: #8497ab;
   color: #fff;
   z-index: 10;
-  font-size: inherit;
+  font-size: 14px;
+  font-weight: 700
   text-align: center;
 }
 td{
