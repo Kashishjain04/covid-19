@@ -15,7 +15,7 @@
                                     <div class="modal-content">                                    
                                     <div class="modal-body">
                                     <form method="GET">
-                                    <input style="width: 100%; height: 40px;" name="date" type="date" min="2020-04-01" max="<?= $today?>" />                                  
+                                    <input style="width: 100%; height: 40px;" name="date" type="date" min="2020-04-21" max="<?= $today?>" />                                  
                                     <button type="submit" class="btn btn-primary w-100 my-2"><h4>Go</h4></button>
                                     </form>
                                     </div>                                                                                                            
