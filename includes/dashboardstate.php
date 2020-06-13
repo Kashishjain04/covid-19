@@ -133,7 +133,7 @@ foreach($data as $Key=> $State){
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">Total Tested</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= end($tested) ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= round(end($tested)/100000,2) ?> Lakh</span></div>
                                             <?php $date= date_format(date_create(end($date)), "m-d-Y")?>
                                             <div style="font-size: 12px;"><span>As of <?= date("d-M", strtotime($date)) ?></span></div>
                                         </div>                                        

@@ -17,7 +17,7 @@ th {
   background: #8497ab;
   color: #fff;
   z-index: 10;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700
   text-align: center;
 }
