@@ -116,7 +116,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">Total Tested</span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?= round($test['totalsamplestested']/100000, 2) ?> Lakh</span></div>
                                             <?php $date= date_format(date_create($test['updatetimestamp']), "m-d-Y")?>
-                                            <div style="font-size: 12px;"><span>As of <?= date("d-M", strtotime($date)) ?></span></div>
+                                            <div style="font-size: 12px;"><span>As of - </span></div>
                                         </div>                                        
                                     </div>                       
                         </div>
