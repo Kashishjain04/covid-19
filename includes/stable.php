@@ -41,7 +41,7 @@ th {
 	margin-top: 1px;
 }
 </style>
-  <div class="row py-5">
+  <div class="row py-5" style="width: 100%;">
   <div class="col-auto mx-auto" style="width: 90%;">    
       <div class="card rounded shadow border-0" style="max-height: 800px; overflow: scroll;">
           <div class="table-responsive">
