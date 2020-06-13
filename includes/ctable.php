@@ -48,15 +48,39 @@ td{
                 <th class="sort" onclick="sortTable(3)">Deceased</th> 
                 </tr>                          
               </thead>              
-              <?php
-            foreach($data as $Key => $State){
+            <?php            
+            if($now == $today){
+              $array = $data;
+            }
+            else{
+              $array = $timeseries;
+            }
+            foreach($array as $Key => $State){
               if($Key=="TT"){
                 continue;
-              } 
+              }
+              if($now == $today){
               $conf = $State['delta']['confirmed'];
               $rec = $State['delta']['recovered'];
               $dec = $State['delta']['deceased'];    
-              $act=$conf-($rec+$dec);                        
+              $act=$conf-($rec+$dec); 
+              
+              $tconf = $State['total']['confirmed'];
+              $trec = $State['total']['recovered'];
+              $tdec = $State['total']['deceased'];
+              $tact = $tconf-($trec+$tdec);
+              }
+              else{
+                $conf = $State[$now]['delta']['confirmed'];
+                $rec = $State[$now]['delta']['recovered'];
+                $dec = $State[$now]['delta']['deceased'];    
+                $act=$conf-($rec+$dec); 
+              
+                $tconf = $State[$now]['total']['confirmed'];
+                $trec = $State[$now]['total']['recovered'];
+                $tdec = $State[$now]['total']['deceased'];
+                $tact = $tconf-($trec+$tdec);
+              }
               if($conf>0)
                   $conf = "↑ ".$conf;
               if($conf<0)
@@ -73,11 +97,7 @@ td{
                   $act = "↑ ".$act;
               if($act<0)
                   $act = "↓ ".abs($act);          
-              
-              $tconf = $State['total']['confirmed'];
-              $trec = $State['total']['recovered'];
-              $tdec = $State['total']['deceased'];
-              $tact = $tconf-($trec+$tdec);
+
               if(!$tconf)
                 $tconf=0;
               if(!$trec)
@@ -90,7 +110,7 @@ td{
             <?php if($Key=="UN"){?>
             <tr class="clickable" >
             <?php } else{?>
-            <tr class="clickable"  onclick="window.location='state.php?name=<?= $scode[$Key]?>'">
+            <tr class="clickable"  onclick="window.location='state.php?name=<?= $scode[$Key]?>&date=<?= $now?>'">
             <?php }?>
                 <div class="row"><td style="font-size: x-large; text-align: center;"><b><?= $scode[$Key] ?></b></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row comp"><?= $tconf ?></span></div></td>
@@ -99,13 +119,15 @@ td{
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row comp"><?= $tdec ?></span></div></td></div>                
             </tr>             
             <?php
-                }
+              }
             ?>
     </table>              
       </div>
       </div>
   </div>           
 <script>
+  window.onload = sortTable(0);
+  window.onload = sortTable(0);
   function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("example");

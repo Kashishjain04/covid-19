@@ -56,7 +56,7 @@ th {
                 </tr>
               </thead>              
               <?php
-              
+            if($today == $now){
             foreach( $data[$Key]['districts'] as $key => $District){                      
               $dc = $District[delta][confirmed];
               $dr = $District[delta][recovered];
@@ -100,8 +100,61 @@ th {
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dd){echo $dd;}?></span><span class="row comp"><?= $d ?></span></div></td></div>                                
             </tr>
             <?php
-                }
-            ?>
+              }  }
+              else{
+                $distdaily = file_get_contents('https://api.covid19india.org/districts_daily.json');
+                $distdaily = json_decode($distdaily, true)['districtsDaily'];
+                foreach( $distdaily[$name] as $key=> $District){
+                  $Key = 0;
+                  foreach($District as $daily){
+                    if($daily['date']==$now){
+                      break;                    
+                    }                    
+                    $Key++;                    
+                  }                  
+                  $dc = $District[$Key][confirmed]-$District[$Key-1][confirmed];
+                  $dr = $District[$Key][recovered]-$District[$Key-1][recovered];
+                  $dd = $District[$Key][deceased]-$District[$Key-1][deceased];
+                  $da = $dc-($dr+$dd);
+                  if($dc>0)
+                      $dc = "↑ ".$dc;
+                  if($dc<0)
+                      $dc = "↓ ".abs($dc);
+                  if($dr>0)
+                      $dr = "↑ ".$dr;              
+                  if($dr<0)
+                      $dr = "↓ ".abs($dr);
+                  if($dd>0)
+                      $dd = "↑ ".$dd;              
+                  if($dd<0)
+                      $dd = "↓ ".abs($dd);
+                  if($da>0)
+                      $da = "↑ ".$da;
+                  if($da<0)
+                      $da = "↓ ".abs($da);          
+                  
+                  $c = $District[$Key][confirmed];
+                  $r = $District[$Key][recovered];
+                  $d = $District[$Key][deceased];
+                  $a = $c-($r+$d);
+                  if(!$c)
+                    $c=0;
+                  if(!$r)
+                    $r=0;
+                  if(!$d)
+                    $d=0;
+                  if(!$a)
+                    $a=0;
+                  if($c){
+                ?>
+                <tr>
+                <div class=row><td style="font-size: x-large; text-align: center;"><b><?= $key?></b></td>
+                    <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($dc){echo $dc;}?></span><span class="row comp"><?= $c ?></span></div></td>
+                    <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($da){echo $da;}?></span><span class="row comp"><?= $a ?></span></div></td>
+                    <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($dr){echo $dr;}?></span><span class="row comp"><?= $r ?></span></div></td>
+                    <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dd){echo $dd;}?></span><span class="row comp"><?= $d ?></span></div></td></div>                                
+                </tr>
+                <?php } } }?>
     </table>
               
               </div>
@@ -111,6 +164,8 @@ th {
 
               <?php } ?>
  <script>
+ window.onload = sortTable(0);
+ window.onload = sortTable(0);
   function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("example");

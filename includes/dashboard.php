@@ -1,16 +1,27 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-$test = file_get_contents('https://api.covid19india.org/data.json');
-$test = end(json_decode($test, true)['tested']);
-$tconf = $data['TT']['total']['confirmed'];
-$trec = $data['TT']['total']['recovered'];
-$tdec = $data['TT']['total']['deceased'];
+if($now==$today){
+    $tconf = $data['TT']['total']['confirmed'];
+    $trec = $data['TT']['total']['recovered'];
+    $tdec = $data['TT']['total']['deceased'];
+    $test = $data['TT']['total']['tested'];
+    $tact = $tconf-($trec+$tdec);
+
+    $dconf = $data['TT']['delta']['confirmed'];
+    $drec = $data['TT']['delta']['recovered'];
+    $ddec = $data['TT']['delta']['deceased'];
+    $dact = $dconf-($drec+$ddec);
+}
+$tconf = $timeseries['TT'][$now]['total']['confirmed'];
+$trec = $timeseries['TT'][$now]['total']['recovered'];
+$tdec = $timeseries['TT'][$now]['total']['deceased'];
+$test = $timeseries['TT'][$now]['total']['tested'];
 $tact = $tconf-($trec+$tdec);
 
-$dconf = $data['TT']['delta']['confirmed'];
-$drec = $data['TT']['delta']['recovered'];
-$ddec = $data['TT']['delta']['deceased'];
+$dconf = $timeseries['TT'][$now]['delta']['confirmed'];
+$drec = $timeseries['TT'][$now]['delta']['recovered'];
+$ddec = $timeseries['TT'][$now]['delta']['deceased'];
 $dact = $dconf-($drec+$ddec);
     if($dconf>0)
         $dconf = "↑ ".$dconf;
@@ -40,7 +51,6 @@ $dact = $dconf-($drec+$ddec);
     }    
 $cpm = round($tconf/$pop['India']*1000000, 2);
 $half = $tconf/2;
-date_default_timezone_set('Asia/Kolkata');
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
 foreach($timeseries['TT'] as $Key => $check){    
     if($check['total']['confirmed']>=$half){        
@@ -51,8 +61,8 @@ foreach($timeseries['TT'] as $Key => $check){
 $double = date_diff(date_create($hdate), $today)->format("%a days");
 
 ?>
-                <div class=" mx-auto"style="width: 95%;">
-                    <div class="row" style="width: 50%; margin-top: 50px;display: inline-flex;">                    
+                <div class="row mx-auto"style="width: 95%;">
+                    <div class="row mx-auto" style="width: 70%; margin-top: 50px;display: inline-flex;">                    
                         <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
@@ -93,7 +103,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                     </div>
                         </div>
                         </div>
-                        <div class="row" style="width: 50%; margin-top: 50px; float: right; display: inline-flex;">
+                        <div class="row mx-auto" style="width: 70%; margin-top: 50px; float: right; display: inline-flex;">
                         <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
@@ -114,9 +124,7 @@ $double = date_diff(date_create($hdate), $today)->format("%a days");
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">Total Tested</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= round($test['totalsamplestested']/100000, 2) ?> Lakh</span></div>                                            
-                                            <?php $date=date_create_from_format("d/m/Y H:i:s", $test['updatetimestamp'])?>
-                                            <div style="font-size: 12px;"><span>As of <?= date_format($date, "d-M") ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= round($test/100000, 2) ?> Lakh</span></div>                                                                                        
                                         </div>                                        
                                     </div>                       
                         </div>

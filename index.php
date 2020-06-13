@@ -1,4 +1,9 @@
 <?php 
+$today = date("Y-m-d");
+$now = $today;
+if($_GET['date']){
+    $now = $_GET['date'];
+}
 $title = 'Covid-19 Details';
 $icon = 'https://image.flaticon.com/icons/png/512/2785/2785819.png';
 include("includes/header.php"); 
@@ -14,7 +19,7 @@ include('includes/data.php');
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" >
-                <?php include('includes/nav.php') ?>
+                <?php include('includes/cnav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                     <div class="card shadow py-2 mx-auto">
@@ -22,12 +27,11 @@ include('includes/data.php');
                             <image height="50px" src="https://img.freepik.com/free-vector/watercolor-map-indian-flag_1035-1099.jpg?size=338&ext=jpg">
                           <h1 class="text-dark mb-0">India</h1>                        
                         </div>
-                    </div>
-                        
-                    </div>
-                        <?php  include('includes/dashboard.php') ?>
+                    </div>                    
+                    </div>                    
+                    <?php  include('includes/dashboard.php') ?>
                     <?php include('includes/ctable.php') ?>                    
                     <?php include('includes/cchart.php') ?>
                 </div>
             </div>
-            <?php include('includes/footer.php') ?>
+            <?php include('includes/footer.php') ?>            

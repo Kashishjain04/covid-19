@@ -1,25 +1,42 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-$test = file_get_contents('https://api.covid19india.org/state_test_data.json');
-$test = json_decode($test, true)['states_tested_data'];
-$tested = array();
-$date = array();
-foreach($test as $tdata){
-    if($tdata['state']==$name){
-        array_push($tested, $tdata['totaltested']);
-        array_push($date, $tdata['updatedon']);
-    }
+if($now == $today){
+    $array = $data;
 }
-//var_dump($test);
-foreach($data as $Key=> $State){    
+else{
+    $array = $timeseries;
+}
+foreach($array as $Key=> $State){    
     if($scode[$Key] != $name){
         continue;
-    }     
+    } 
+    if($now == $today){    
     $conf = $State['delta']['confirmed'];
     $rec = $State['delta']['recovered'];
     $dec = $State['delta']['deceased'];
     $act = $conf-($rec+$dec);
+
+    $tconf = $State['total']['confirmed'];
+    $trec = $State['total']['recovered'];
+    $tdec = $State['total']['deceased'];
+    $test = $State['total']['tested'];
+    $tact = $tconf-($trec+$tdec);
+    }
+
+    else{    
+        $conf = $State[$now]['delta']['confirmed'];
+        $rec = $State[$now]['delta']['recovered'];
+        $dec = $State[$now]['delta']['deceased'];
+        $act = $conf-($rec+$dec);
+    
+        $tconf = $State[$now]['total']['confirmed'];
+        $trec = $State[$now]['total']['recovered'];
+        $tdec = $State[$now]['total']['deceased'];
+        $test = $State[$now]['total']['tested'];
+        $tact = $tconf-($trec+$tdec);
+    }
+
     if($conf>0)
         $conf = "↑ ".$conf;
     if(!$conf)
@@ -43,10 +60,7 @@ foreach($data as $Key=> $State){
         $conf = "♥︎";           
         $act = "<br>";        
     } 
-    $tconf = $State['total']['confirmed'];
-    $trec = $State['total']['recovered'];
-    $tdec = $State['total']['deceased'];
-    $tact = $tconf-($trec+$tdec);
+    
     if(!$tconf)
         $tconf=0;
     if(!$trec)
@@ -59,7 +73,7 @@ foreach($data as $Key=> $State){
     $count = count($stdaily);
     $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
     $c=0;
-    $half = ($State['total']['confirmed'])/2;    
+    $half = ($tconf)/2;    
     foreach($timeseries[$Key] as $key => $check){    
         if($check['total']['confirmed']>=$half){        
             $hdate = $key;
@@ -69,8 +83,8 @@ foreach($data as $Key=> $State){
     
     $double = date_diff(date_create($hdate),$today)->format("%a days");
 ?>
-<div class=" mx-auto"style="width: 100%;">
-<div class="row" style="width: 50%; margin-top: 50px;display: inline-flex;">
+<div class="row mx-auto"style="width: 90%;">
+<div class="row mx-auto" style="width: 70%; margin-top: 50px;display: inline-flex;">
                         <div class="col-auto" style="width: 25%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">                                            
@@ -96,7 +110,7 @@ foreach($data as $Key=> $State){
                                             <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="color: #4ca746;">recovered</span></div>
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #4ca74687; font-size: medium;"><?= $rec ?></span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $trec ?></span></div>
-                                            <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($trec/$State['total'][confirmed]*100), 2) ."%)"; ?></span></div>                                      
+                                            <div style="font-size: 16px;" class="col-auto"><span><?php echo "(".round(($trec/$tconf*100), 2) ."%)"; ?></span></div>                                      
                                         </div>                                                                               
                                     </div>
                         </div>
@@ -106,12 +120,12 @@ foreach($data as $Key=> $State){
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #6c757c;">deceased</span></div>
                                             <div class="text-uppercase text-primary font-weight-bold text-xs mb-1 col-auto"><span style="color: transparent;  text-shadow: 0 0 0 #6c757c87; font-size: medium;"><?= $dec ?></span></div>
                                             <div class="text-dark font-weight-bold h5 mb-0"><span><?php echo $tdec ?></span></div>
-                                            <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round(($tdec/$State['total'][confirmed]*100), 2) ."%)"; ?></span></div>
+                                            <div style="font-size: 16px;" class="col-auto"><span><?php  echo "(".round(($tdec/$tconf*100), 2) ."%)"; ?></span></div>
                                         </div>                                        
                                     </div>
                         </div>
     </div>
-                        <div class="row" style="width: 50%; margin-top: 50px; float: right; display: inline-flex;">
+                        <div class="row mx-auto" style="width: 70%; margin-top: 50px; float: right; display: inline-flex;">
                         <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
@@ -128,14 +142,12 @@ foreach($data as $Key=> $State){
                                         </div>                                        
                                     </div>
                         </div>
-                        <?php if($tested){?>                      
+                        <?php if($test){?>                      
                         <div class="col-auto" style="width: 24%; text-align: center;">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col-auto">
                                             <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="color: #681633;">Total Tested</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= round(end($tested)/100000,2) ?> Lakh</span></div>
-                                            <?php $date= date_format(date_create(end($date)), "m-d-Y")?>
-                                            <div style="font-size: 12px;"><span>As of <?= date("d-M", strtotime($date)) ?></span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span><?= round($test/100000, 2) ?> Lakh</span></div>                                            
                                         </div>                                        
                                     </div>                       
                         </div>

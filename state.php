@@ -1,5 +1,10 @@
 <?php
+$today = date("Y-m-d");
+//$now = $today;
 $name = $_GET['name'];
+if($_GET['date']){
+$now = $_GET['date'];
+}
 $state = $data1[$name];
 $title = $name;
 $icon = 'https://image.flaticon.com/icons/png/512/2785/2785819.png';
@@ -22,7 +27,7 @@ include('includes/data.php');
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <?php include('includes/nav.php') ?>
+                <?php include('includes/snav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                     <div class="card shadow py-2 mx-auto">

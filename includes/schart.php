@@ -48,12 +48,13 @@
         
 
 
-        <?php 
+<?php 
         foreach($timeseries as $Key=> $State){    
           if($scode[$Key] != $name){
               continue;
           }     
-        $count = count($State);    
+        //$count = count($State); 
+        var_dump($now);   
 ?>
 
 
@@ -79,11 +80,15 @@
     type: 'line', 
     data: {
       labels: [
-        <?php 
+        <?php         
         $i=0;        
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
-            continue;          
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
+            continue;
+          }
+          if($key>$now){
+          break;
+          }         
             ?>
           '<?= date_format(date_create($key),"d-M");?>',
         <?php }?>                
@@ -93,9 +98,13 @@
           <?php 
         $i =0;
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
-            ?>
+          }
+          if($key>$now){
+          break;
+          }
+          ?>
           '<?= $data1['total']['confirmed']?>',
         <?php }?>
         ],
@@ -166,8 +175,12 @@
         <?php 
         $i=0;        
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
-            continue;          
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
+            continue;
+          }
+          if($key>$now){
+          break;
+          }                
             ?>
           '<?= date_format(date_create($key),"d-M");?>',
         <?php }?>                
@@ -177,8 +190,12 @@
           <?php 
         $i =0;
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
+          }
+          if($key>$now){
+          break;
+          }       
             ?>
           '<?= $data1['total']['confirmed']-($data1['total']['recovered']+$data1['total']['deceased'])?>',
         <?php }?>   
@@ -252,8 +269,12 @@
         <?php 
         $i=0;        
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
-            continue;          
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
+            continue;
+          }
+          if($key>$now){
+          break;
+          }                
             ?>
           '<?= date_format(date_create($key),"d-M");?>',
         <?php }?>                
@@ -263,8 +284,12 @@
           <?php 
         $i =0;
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
+          }
+          if($key>$now){
+          break;
+          }       
             ?>
           '<?= $data1['total']['confirmed']?>',
         <?php }?> 
@@ -336,8 +361,12 @@
         <?php 
         $i=0;        
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
-            continue;          
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
+            continue;
+          }
+          if($key>$now){
+          break;
+          }                 
             ?>
           '<?= date_format(date_create($key),"d-M");?>',
         <?php }?>                
@@ -347,8 +376,12 @@
           <?php 
         $i =0;
         foreach( $State as $key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
+          }
+          if($key>$now){
+          break;
+          }       
             ?>
           '<?= $data1['total']['confirmed']?>',
         <?php }?>  

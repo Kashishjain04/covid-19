@@ -73,10 +73,14 @@ $count = count($timeseries['TT']);
         <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
-            continue;          
-            ?>
-          '<?= date_format(date_create($Key),"d-M");?>',
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
+            continue;
+        }
+        if($Key>$now){
+          break;
+        }          
+        ?>
+        '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
       datasets: [{
@@ -84,9 +88,13 @@ $count = count($timeseries['TT']);
           <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
-            ?>
+          }
+          if($Key>$now){
+          break;
+          }
+          ?>
           '<?= $data1['total']['confirmed']?>',
         <?php }?>   
         ],
@@ -155,11 +163,15 @@ $count = count($timeseries['TT']);
     data: {
       labels: [
         <?php 
-        $i =0;        
-        foreach( $timeseries['TT'] as $Key => $data1){          
-          if(($count-$i++)>31)          
+        $i =0;
+        foreach( $timeseries['TT'] as $Key => $data1){
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
-            ?>
+        }
+        if($Key>$now){
+          break;
+        }          
+        ?>
           '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
@@ -168,8 +180,12 @@ $count = count($timeseries['TT']);
           <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
-            continue;            
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
+            continue;
+          }
+          if($Key>$now){
+          break;
+          }            
             ?>
           '<?= $data1['total']['confirmed']-($data1['total']['recovered']+$data1['total']['deceased'])?>',
         <?php }?>           
@@ -243,9 +259,13 @@ $count = count($timeseries['TT']);
         <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
-            ?>
+        }
+        if($Key>$now){
+          break;
+        }          
+        ?>
           '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
@@ -254,8 +274,12 @@ $count = count($timeseries['TT']);
           <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
+          }
+          if($Key>$now){
+          break;
+          }
             ?>
           '<?= $data1['total']['recovered']?>',
         <?php }?>      
@@ -327,9 +351,13 @@ $count = count($timeseries['TT']);
         <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
-            ?>
+        }
+        if($Key>$now){
+          break;
+        }          
+        ?>
           '<?= date_format(date_create($Key),"d-M");?>',
         <?php }?>                
       ],
@@ -338,8 +366,12 @@ $count = count($timeseries['TT']);
           <?php 
         $i =0;
         foreach( $timeseries['TT'] as $Key => $data1){
-          if(($count-$i++)>31)
+          if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
+          }
+          if($Key>$now){
+          break;
+          }
             ?>
           '<?= $data1['total']['deceased']?>',
         <?php }?>     
