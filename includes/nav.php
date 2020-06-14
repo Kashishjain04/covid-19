@@ -6,23 +6,50 @@
                     <div class="sidebar-brand-icon rotate-n-15 mx-3"><a href="/"><image width="40px" src="https://image.flaticon.com/icons/png/512/2785/2785819.png" /></a></div>
                     <div class="sidebar-brand-text mx-1" style="font-family: Nunito; font-weight: 800; text-transform: uppercase; letter-spacing: .05rem;"><span>Covid-19 India</span></div>
                         <ul class="nav navbar-nav flex-nowrap ml-auto align-items-center">  
+                        <?php 
+                        switch ($id) {
+                            case 1:    
+                        ?>
                             <li class="nav-item dropdown no-arrow mr-4">
-                            <a type="button" data-toggle="modal" data-target="#exampleModal">
-                            <image width="30px" src="https://image.flaticon.com/icons/svg/2370/2370264.svg" />
-                            </a>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" style="width: max-content; font-size: x-large;" role="document">
-                                    <div class="modal-content">                                    
-                                    <div class="modal-body">
-                                    <form method="GET">
-                                    <input style="width: 100%; height: 40px;" name="date" type="date" min="2020-04-21" max="<?= $today?>" />                                  
-                                    <button type="submit" class="btn btn-primary w-100 my-2"><h4>Go</h4></button>
-                                    </form>
-                                    </div>                                                                                                            
+                                <a type="button" data-toggle="modal" data-target="#exampleModal">
+                                <image width="30px" src="https://image.flaticon.com/icons/svg/2370/2370264.svg" />
+                                </a>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="width: max-content; font-size: x-large;" role="document">
+                                        <div class="modal-content">                                    
+                                        <div class="modal-body">
+                                        <form method="GET">
+                                        <input style="width: 100%; height: 40px;" name="date" type="date" min="2020-04-21" max="<?= $today?>" />                                  
+                                        <button type="submit" class="btn btn-primary w-100 my-2"><h4>Go</h4></button>
+                                        </form>
+                                        </div>                                                                                                            
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            </li>                                                                       
+                            </li>
+                        <?php
+                            break;
+                            case 2:
+                        ?>         
+                            <li class="nav-item dropdown no-arrow mr-4">
+                                <a type="button" data-toggle="modal" data-target="#exampleModal">
+                                <image width="30px" src="https://image.flaticon.com/icons/svg/2370/2370264.svg" />
+                                </a>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="width: max-content; font-size: x-large;" role="document">
+                                        <div class="modal-content">                                    
+                                        <div class="modal-body">
+                                        <form method="GET">
+                                        <input class="w-100 mb-2" name="date" type="date" min="2020-04-21" max="<?= $today?>" /> 
+                                        <input type="hidden" name="name" value="<?= $name?>">                                 
+                                        <button type="submit" class="btn btn-primary w-100"><h4>Go</h4></button>
+                                        </form>
+                                        </div>                                                                                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php break; }?>                                                    
                             <li class="nav-item dropdown no-arrow mx-1" role="presentation">
                                 <div style="margin-right: 20px;" class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><image width="27px" src="https://image.flaticon.com/icons/svg/2932/2932642.svg" /></a>
                                     <div style="max-height: 400px; overflow: scroll;" class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"

@@ -1,6 +1,6 @@
 <?php
+$id =2;
 $today = date("Y-m-d");
-//$now = $today;
 $name = $_GET['name'];
 if($_GET['date']){
 $now = $_GET['date'];
@@ -27,7 +27,7 @@ include('includes/data.php');
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <?php include('includes/snav.php') ?>
+                <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                     <div class="card shadow py-2 mx-auto">
