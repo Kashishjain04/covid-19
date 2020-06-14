@@ -1,6 +1,7 @@
 <?php
 $title = "Headlines";
 $icon = "https://image.flaticon.com/icons/svg/2680/2680927.svg";
+include('includes/news.php')
 include('includes/header.php');
 include('includes/nav.php');
 ?>
