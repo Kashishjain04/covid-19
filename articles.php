@@ -2,8 +2,8 @@
 $id =3;
 $title = "Headlines";
 $icon = "https://image.flaticon.com/icons/svg/2680/2680927.svg";
-include('includes/news.php');
 include('includes/header.php');
+include('includes/nav.php');
 ?>
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">    
     <link rel="stylesheet" href="assets/css/aos.css">
