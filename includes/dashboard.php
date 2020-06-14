@@ -1,18 +1,19 @@
 <?php
 $pop = file_get_contents('includes/poparrays.json');
 $pop = json_decode($pop, true);
-if($now==$today){
+if($now==$today){    
     $tconf = $data['TT']['total']['confirmed'];
     $trec = $data['TT']['total']['recovered'];
     $tdec = $data['TT']['total']['deceased'];
     $test = $data['TT']['total']['tested'];
     $tact = $tconf-($trec+$tdec);
-
+    
     $dconf = $data['TT']['delta']['confirmed'];
     $drec = $data['TT']['delta']['recovered'];
     $ddec = $data['TT']['delta']['deceased'];
     $dact = $dconf-($drec+$ddec);
 }
+else{
 $tconf = $timeseries['TT'][$now]['total']['confirmed'];
 $trec = $timeseries['TT'][$now]['total']['recovered'];
 $tdec = $timeseries['TT'][$now]['total']['deceased'];
@@ -23,6 +24,7 @@ $dconf = $timeseries['TT'][$now]['delta']['confirmed'];
 $drec = $timeseries['TT'][$now]['delta']['recovered'];
 $ddec = $timeseries['TT'][$now]['delta']['deceased'];
 $dact = $dconf-($drec+$ddec);
+}
     if($dconf>0)
         $dconf = "↑ ".$dconf;
     if(!$dconf)

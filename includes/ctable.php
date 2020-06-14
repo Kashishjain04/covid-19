@@ -48,9 +48,10 @@ td{
                 <th class="sort" onclick="sortTable(3)">Deceased</th> 
                 </tr>                          
               </thead>              
-            <?php            
+            <?php
+            $today = date("Y-m-d");
             if($now == $today){
-              $array = $data;
+              $array = $data;              
             }
             else{
               $array = $timeseries;
