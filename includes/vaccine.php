@@ -2,8 +2,7 @@
 
 $curl = curl_init();
 
-curl_setopt_array($curl, array(
-  //CURLOPT_URL => "https://api.covid19india.org/data.json",
+curl_setopt_array($curl, array(  
   CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=vaccine&apiKey=64127cf643634d0c98de3f96c0935d6d",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -17,8 +16,5 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 $vdata = json_decode($response, true);
 curl_close($curl);
-
-
-//echo $response;
 
 ?>
