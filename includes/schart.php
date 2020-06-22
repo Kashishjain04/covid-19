@@ -86,7 +86,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }         
             ?>
@@ -101,7 +101,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }
           ?>
@@ -178,7 +178,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }                
             ?>
@@ -193,7 +193,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }       
             ?>
@@ -272,7 +272,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }                
             ?>
@@ -287,11 +287,11 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }       
             ?>
-          '<?= $data1['total']['confirmed']?>',
+          '<?= $data1['total']['recovered']?>',
         <?php }?> 
         ],
         lineTension: 0,        
@@ -364,7 +364,7 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }                 
             ?>
@@ -379,11 +379,11 @@
           if(date_diff(date_create($key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($key>$now){
+          if($key>=$now){
           break;
           }       
             ?>
-          '<?= $data1['total']['confirmed']?>',
+          '<?= $data1['total']['deceased']?>',
         <?php }?>  
         ],
         lineTension: 0,       

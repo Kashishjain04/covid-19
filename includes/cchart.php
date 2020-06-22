@@ -76,7 +76,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
         }
-        if($Key>$now){
+        if($Key>=$now){
           break;
         }          
         ?>
@@ -91,7 +91,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($Key>$now){
+          if($Key>=$now){
           break;
           }
           ?>
@@ -168,7 +168,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
         }
-        if($Key>$now){
+        if($Key>=$now){
           break;
         }          
         ?>
@@ -183,7 +183,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($Key>$now){
+          if($Key>=$now){
           break;
           }            
             ?>
@@ -262,7 +262,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
         }
-        if($Key>$now){
+        if($Key>=$now){
           break;
         }          
         ?>
@@ -277,7 +277,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($Key>$now){
+          if($Key>=$now){
           break;
           }
             ?>
@@ -354,7 +354,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
         }
-        if($Key>$now){
+        if($Key>=$now){
           break;
         }          
         ?>
@@ -369,7 +369,7 @@ $count = count($timeseries['TT']);
           if(date_diff(date_create($Key),date_create($now))->format("%a")>31){
             continue;
           }
-          if($Key>$now){
+          if($Key>=$now){
           break;
           }
             ?>
