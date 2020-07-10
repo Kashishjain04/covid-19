@@ -1,6 +1,6 @@
 <?php
-$pop = file_get_contents('includes/poparrays.json');
-$pop = json_decode($pop, true);
+// $pop = file_get_contents('includes/poparrays.json');
+// $pop = json_decode($pop, true);
 if($now == $today){
     $array = $data;
 }
@@ -69,7 +69,13 @@ foreach($array as $Key=> $State){
         $tdec=0;
     if(!$tact)
         $tact=0;   
-    $cpm = round($tconf/$pop[$name]*1000000, 2);
+
+    foreach($data as $Key=> $State){    
+        if($scode[$Key] != $name){
+            continue;
+        }
+        $cpm = round($tconf/$State['meta']['population']*1000000, 2);
+    }
     $count = count($stdaily);
     $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
     $c=0;

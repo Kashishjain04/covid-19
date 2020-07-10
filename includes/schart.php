@@ -52,9 +52,7 @@
         foreach($timeseries as $Key=> $State){    
           if($scode[$Key] != $name){
               continue;
-          }     
-        //$count = count($State); 
-        var_dump($now);   
+          }
 ?>
 
 
