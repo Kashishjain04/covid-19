@@ -3,7 +3,6 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  //CURLOPT_URL => "https://api.covid19india.org/data.json",
   CURLOPT_URL => "https://api.covid19india.org/v3/data.json",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -16,15 +15,10 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 $data = json_decode($response, true);
-/*foreach($data as $key=> $state){
-  $sort[$key] = $state['total']['confirmed'];
-}
-array_multisort($sort, SORT_DESC, $data);*/
 curl_close($curl);
 
 $curl = curl_init();
-curl_setopt_array($curl, array(
-  //CURLOPT_URL => "https://api.covid19india.org/data.json",
+curl_setopt_array($curl, array(  
   CURLOPT_URL => "https://api.covid19india.org/v3/timeseries.json",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",

@@ -1,7 +1,7 @@
 <?php 
 
-foreach($data as $Key=> $State){
-    //var_dump($State);    
+$today = date("Y-m-d");
+foreach($data as $Key=> $State){    
     if($scode[$Key] != $name){
         continue;
     }
