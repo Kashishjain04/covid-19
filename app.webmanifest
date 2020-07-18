@@ -1,0 +1,21 @@
+{
+  "name": "Covid-19 Details",
+  "short_name": "Covid-19 Details",
+  "description": "Track Live status of coronavirus in India with State-wise and District-wise data with chart comparison of last 30 days and analytics like Confirmed per million and Doubling rate is also provided.",
+  "icons": [
+    {
+      "src": "https://image.flaticon.com/icons/png/512/2785/2785819.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },    
+    {
+      "src": "https://image.flaticon.com/icons/png/512/2785/2785819.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#B12A34",
+  "background_color": "#B12A34"
+}
