@@ -36,6 +36,18 @@
     <link rel="manifest" href="/app.webmanifest">
     <link rel="icon" href="<?= $icon?>">
     <script data-ad-client="ca-pub-4358811063308681" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker
+            .register('../sw.js')
+            .then(function() {
+                console.log("Service Worker registered successfully");
+            })
+            .catch(function() {
+                console.log("Service worker registration failed")
+            });
+        }
+    </script>
     <style>
        @font-face {
             font-family: 'me';
