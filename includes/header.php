@@ -20,7 +20,13 @@
     })(window,document,'script','dataLayer','GTM-KL3N95B');</script>
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
+    
+    <!-- NON RESPONSIVE -->
     <meta name="viewport" content="width=900, shrink-to-fit=no">
+
+    <!-- RESPONSIVE -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
     <meta name="title" content="Covid-19 India Complete Tracking" />
     <meta name="keywords" content="cov19india.live covid-19 pandemic coronavirus chart tracking live data doubling rate india state wise state-wise confirmed per million" />
     <meta name="description" content="Track Live status of coronavirus in India with State-wise and District-wise data with chart comparison of last 30 days and analytics like Confirmed per million and Doubling rate is also provided." />
