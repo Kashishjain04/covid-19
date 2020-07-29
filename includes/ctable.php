@@ -45,7 +45,8 @@ td{
                 <th class="sort" onclick="sortTable(0)">Confirmed</th>
                 <th class="sort" onclick="sortTable(1)">Active</th>
                 <th class="sort" onclick="sortTable(2)">Recovered</th>
-                <th class="sort" onclick="sortTable(3)">Deceased</th> 
+                <th class="sort" onclick="sortTable(3)">Deceased</th>
+                <th>Tested</th> 
                 </tr>                          
               </thead>              
             <?php
@@ -70,6 +71,32 @@ td{
               $trec = $State['total']['recovered'];
               $tdec = $State['total']['deceased'];
               $tact = $tconf-($trec+$tdec);
+
+              // // // // TESTED // // // //
+
+              $dt = $State['delta']['tested'];
+              if($dt>1000000){
+                $dt = round($dt/100000, 2)." M";
+              }
+              elseif ($dt>1000){
+                $dt = round($dt/1000, 2)." K";
+              }
+              if ($dt > 0)
+                $dt = "↑ " . $dt;
+              if ($dt < 0)
+                $dt = "↓ " . abs($dt);
+
+              $t = $State['total']['tested'];                
+              if($t>1000000){
+                $t = round($t/100000, 2)." M";
+              }
+              elseif ($t>1000){
+                $t = round($t/1000, 2)." K";
+              }
+              elseif(!$t){
+                $t = "-";
+              }
+              // // // // // // // // // //
               }
               else{
                 $conf = $State[$now]['delta']['confirmed'];
@@ -81,6 +108,32 @@ td{
                 $trec = $State[$now]['total']['recovered'];
                 $tdec = $State[$now]['total']['deceased'];
                 $tact = $tconf-($trec+$tdec);
+
+                // // // // TESTED // // // //
+
+                $dt = $State[$now]['delta']['tested'];
+                if($dt>1000000){
+                  $dt = round($dt/1000000, 2)." M";
+                }
+                elseif ($dt>1000){
+                  $dt = round($dt/1000, 2)." K";
+                }
+                if ($dt > 0)
+                  $dt = "↑ " . $dt;
+                if ($dt < 0)
+                  $dt = "↓ " . abs($dt);
+
+                $t = $State[$now]['total']['tested'];                
+                if($t>1000000){
+                  $t = round($t/1000000, 2)." M";
+                }
+                elseif ($t>1000){
+                  $t = round($t/1000, 2)." K";
+                }
+                elseif(!$t){
+                  $t = "-";
+                }
+                // // // // // // // // // //
               }
               if($conf>0)
                   $conf = "↑ ".$conf;
@@ -117,7 +170,9 @@ td{
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #ed3838;"><?php if($conf){echo $conf;}?></span><span class="row comp"><?= $tconf ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #1579f6;"><?php if($act){echo $act;}?></span><span class="row comp"><?= $tact ?></span></div></td>
                 <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #4ca746;"><?php if($rec){echo $rec;}?> </span><span class="row comp"><?= $trec ?></span></div></td>
-                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row comp"><?= $tdec ?></span></div></td></div>                
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #6c757c;"><?php if($dec){echo $dec;}?></span><span class="row comp"><?= $tdec ?></span></div></td>
+                <td><div class="col-auto"><span class="row" style="font-size: smaller; font-weight: 700; color: #9572b8;"><?php if($dt){echo $dt;}?></span><span class="row comp"><?= $t ?></span></div></td>
+              </div>                
             </tr>             
             <?php
               }

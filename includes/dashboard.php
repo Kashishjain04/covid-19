@@ -51,7 +51,7 @@ $dact = $dconf-($drec+$ddec);
         $dconf = "♥︎";           
         $dact = " <br>";         
     }    
-$cpm = round($tconf/$data['TT']['meta']['population']*1000000, 2);
+$cpm = round($tconf/$data['TT']['meta']['population']*100000, 2);
 $half = $tconf/2;
 $today = new DateTime("now", new DateTimeZone('Asia/Kolkata')); 
 foreach($timeseries['TT'] as $Key => $check){    

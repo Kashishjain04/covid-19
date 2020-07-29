@@ -57,7 +57,7 @@ foreach ($data as $Key => $State) {
                 <th class="sort" onclick="sortTable(1)">Active</th>
                 <th class="sort" onclick="sortTable(2)">Recovered</th>
                 <th class="sort" onclick="sortTable(3)">Deceased</th>
-                <th class="sort" onclick="sortTable(4)">Tested</th>
+                <th>Tested</th> 
               </tr>
             </thead>
             <?php
@@ -102,7 +102,7 @@ foreach ($data as $Key => $State) {
                 $dt = $District['delta']['tested'];
 
                 if($dt>1000000){
-                  $dt = round($dt/100000, 2)." M";
+                  $dt = round($dt/1000000, 2)." M";
                 }
                 elseif ($dt>1000){
                   $dt = round($dt/1000, 2)." K";
@@ -115,7 +115,7 @@ foreach ($data as $Key => $State) {
                   
                 $t = $District['total']['tested'];                
                 if($t>1000000){
-                  $t = round($t/100000, 2)." M";
+                  $t = round($t/1000000, 2)." M";
                 }
                 elseif ($t>1000){
                   $t = round($t/1000, 2)." K";
@@ -170,15 +170,15 @@ foreach ($data as $Key => $State) {
                       </div>
                     </td>
                     <td>
-                        <div class="col-auto">
-                          <span class="row" style="font-size: smaller; font-weight: 700; color: #9572b8;">
-                            <?php if ($dt) {
-                              echo $dt;
-                            } ?>
-                          </span>
-                          <span class="row comp"><?= $t ?></span>
-                        </div>
-                      </td>
+                      <div class="col-auto">
+                        <span class="row" style="font-size: smaller; font-weight: 700; color: #9572b8;">
+                          <?php if ($dt) {
+                            echo $dt;
+                          } ?>
+                        </span>
+                        <span class="row comp"><?= $t ?></span>
+                      </div>
+                    </td>
                   </div>
                 </tr>
                 <?php
