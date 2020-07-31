@@ -22,8 +22,9 @@ function light() {
     document.getElementById("name").classList.add("text-dark");
     document.getElementById("nav").classList.remove("bg-dark");
     document.getElementById("nav").classList.add("bg-white");
+    document.getElementById("brand").classList.remove("text-light");
     document.getElementsByClassName("foot-card").classList.remove("bg-dark");
-    document.getElementsByClassName("foot-card").classList.add("bg-white");
+    document.getElementsByClassName("foot-card").classList.add("bg-white");    
 }
 function dark() {
     state=0;
@@ -35,6 +36,7 @@ function dark() {
     document.getElementById("name").classList.remove("text-dark");
     document.getElementById("nav").classList.add("bg-dark");
     document.getElementById("nav").classList.remove("bg-white");
+    document.getElementById("brand").classList.add("text-light");
     document.getElementsByClassName("foot-card").classList.add("bg-dark");
-    document.getElementsByClassName("foot-card").classList.remove("bg-white");
+    document.getElementsByClassName("foot-card").classList.remove("bg-white");    
 }
