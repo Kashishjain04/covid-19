@@ -13,7 +13,7 @@
 
             <!-- Team item -->
                 <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="foot-card" class="bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQGmJfba6MM8tA/profile-displayphoto-shrink_100_100/0?e=1599696000&v=beta&t=6DrsT4P7TiggGjSwwCPJVWLOJr_e37Ttm3Fem4agJB0" alt="Kashish Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQGmJfba6MM8tA/profile-displayphoto-shrink_100_100/0?e=1599696000&v=beta&t=6DrsT4P7TiggGjSwwCPJVWLOJr_e37Ttm3Fem4agJB0" alt="Kashish Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0">Kashish Jain</h5>
                         <span class="small text-uppercase text-muted">Founder - Designer</span>
                         <ul class="social mb-0 list-inline mt-3">
@@ -27,7 +27,7 @@
 
             <!-- Team item -->
             <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="foot-card" class="bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH84I_Vv17XVA/profile-displayphoto-shrink_200_200/0?e=1599696000&v=beta&t=xy3oCYOSJ764j_GwqMW_jxoprSI--5Kfn5TMSwiHYJk" alt="Nitika Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH84I_Vv17XVA/profile-displayphoto-shrink_200_200/0?e=1599696000&v=beta&t=xy3oCYOSJ764j_GwqMW_jxoprSI--5Kfn5TMSwiHYJk" alt="Nitika Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0">Nitika Jain</h5>
                         <span class="small text-uppercase text-muted">Promotions Manager</span>
                         <ul class="social mb-0 list-inline mt-3">                            
