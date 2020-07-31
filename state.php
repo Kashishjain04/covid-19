@@ -30,10 +30,10 @@ include('includes/data.php');
                 <?php include('includes/nav.php') ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <div class="card shadow py-2 mx-auto">
+                        <div id="heading" class="border-0 card shadow py-2 mx-auto">
                             <div class="card-body row mx-4"  style="font-family: me ; font-size: 30px; letter-spacing: 2px; align-items: center; ">
                                 <image height="40px" src=<?= $map[$name]?>>
-                            <h3 class="text-dark mb-0 mx-2"><?php echo$name ?></h3>                        
+                            <h3 id="name" class="text-dark mb-0 mx-2"><?php echo$name ?></h3>                        
                             </div>
                         </div>
                     </div>

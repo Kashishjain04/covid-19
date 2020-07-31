@@ -1,11 +1,11 @@
 <?php include('includes/news.php') ?>
 <?php include('includes/vaccine.php') ?>
 <link rel="stylesheet" href="themes/bootstrap-theme/ej.web.all.min.css" />
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <nav id="nav" class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                     <div class="sidebar-brand-icon rotate-n-15 mx-3"><a href="/"><image width="40px" src="https://image.flaticon.com/icons/png/512/2785/2785819.png" /></a></div>
                     <div class="sidebar-brand-text mx-1" style="font-family: Nunito; font-weight: 800; text-transform: uppercase; letter-spacing: .05rem;"><span>Covid-19 India</span></div>
-                        <ul class="nav navbar-nav flex-nowrap ml-auto align-items-center">  
+                        <ul class="nav navbar-nav flex-nowrap ml-auto align-items-center">                            
                         <?php 
                         switch ($id) {
                             case 1:    
@@ -63,7 +63,7 @@
                                             <image height="50px" src="<?= $article['urlToImage'] ?>"><!--i class="fas fa-file-alt text-white"></i-->
                                             </div>                                            
                                             <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article['publishedAt'])) ?></span>
-                                           <p><?= $article[title] ?></p>
+                                           <p><?= $article['title'] ?></p>
                                            <span class="small float-right text-gray-500">- <?= $article['source']['name'] ?>
                                             </div>                                            
                                             </a>
@@ -88,7 +88,7 @@
                                             <image height="50px" src="<?= $article['urlToImage'] ?>"><!--i class="fas fa-file-alt text-white"></i-->
                                             </div>                                            
                                             <div><span class="small text-gray-500"><?= date("d-m-Y H:i", strtotime($article['publishedAt'])) ?></span>
-                                           <p><?= $article[title] ?></p>
+                                           <p><?= $article['title'] ?></p>
                                            <span class="small float-right text-gray-500">- <?= $article['source']['name'] ?>
                                             </div>                                            
                                             </a>

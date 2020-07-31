@@ -4,7 +4,7 @@ $count = count($timeseries['TT']);
 ?>
 <div class="row py-5">
   <div class="col-lg-5 mx-auto" style="max-width: 50%;">
-    <div class="card shadow mb-4"style="background: #ed383823">
+    <div class="card shadow mb-4"style="background: #ed383823; border: none;">
       <div class="d-flex justify-content-between align-items-center" style="color: #ed3838; align-self: center; margin-top: 10px;">
         <h6 class="font-weight-bold m-0">Confirmed</h6>                                    
       </div>
@@ -14,7 +14,7 @@ $count = count($timeseries['TT']);
     </div>
   </div>                                                                        
   <div class="col-lg-5 mx-auto" style="max-width: 50%;">
-    <div class="card shadow mb-4"style="background: #1579f623">
+    <div class="card shadow mb-4"style="background: #1579f623; border: none;">
       <div class="d-flex justify-content-between align-items-center"  style="color: #1579f6; align-self: center; margin-top: 10px;">
         <h6 class="font-weight-bold m-0">Active</h6>                                    
       </div>
@@ -24,7 +24,7 @@ $count = count($timeseries['TT']);
     </div>
   </div>
   <div class="col-lg-5 mx-auto" style="max-width: 50%;">                        
-    <div class="card shadow mb-4"style="background: #4ca74623">
+    <div class="card shadow mb-4"style="background: #4ca74623; border: none;">
       <div class="d-flex justify-content-between align-items-center"  style="color: #4ca746; align-self: center; margin-top: 10px;">
         <h6 class="font-weight-bold m-0">Recovered</h6>                                    
       </div>
@@ -34,7 +34,7 @@ $count = count($timeseries['TT']);
     </div>
   </div>
   <div class="col-lg-5 mx-auto" style="max-width: 50%;">
-    <div class="card shadow mb-4"style="background: #6c757c23">
+    <div class="card shadow mb-4"style="background: #6c757c23; border: none;">
       <div class="d-flex justify-content-between align-items-center"  style="color: #6c757c; align-self: center; margin-top: 10px;">
         <h6 class="font-weight-bold m-0">Deceased</h6>                                    
       </div>

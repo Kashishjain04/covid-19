@@ -65,3 +65,4 @@
             font-style: normal;
         }
     </style>
+    <link id="dark-css" rel="stylesheet" href="/assets/css/dark.css">
