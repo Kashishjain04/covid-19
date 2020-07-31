@@ -24,7 +24,6 @@ function toggle() {
     }
     window.location.reload();
     localStorage.setItem("theme", state);
-    console.log(localStorage);
 };
 
 function light() {
