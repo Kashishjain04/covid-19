@@ -98,6 +98,6 @@
                             </li>                                                        
                         </ul>
                     </div>                                            
-                </nav>
+                </nav>                
                 <script src="assets/js/popover.min.js"></script> 
                 

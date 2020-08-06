@@ -41,8 +41,8 @@
             </div>
         </div>
         
-        <button class="border rounded d-inline scroll-to-top" onclick="toggle()"><i id="mode-toggle" class="fa fa-sun-o" aria-hidden="true"></i></button>
-        <!-- <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fa fa-angle-up"></i></a></div> -->
+        <button style="top:5rem;" class="border rounded d-inline scroll-to-top" onclick="toggle()"><i id="mode-toggle" class="fa fa-sun-o" aria-hidden="true"></i></button>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fa fa-angle-up"></i></a></div>
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" as="script">
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js" as="script">
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" as="script">
