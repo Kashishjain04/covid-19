@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  // CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=covid&apiKey=4af9a74626774997bde9703717af2639&country=in",
+  CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=covid&apiKey=4af9a74626774997bde9703717af2639&country=in",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -21,7 +21,7 @@ curl_close($curl);
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  // CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=&apiKey=0d42d55acd7f4923aac9a7d8d9c432fb&country=in",
+  CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=&apiKey=0d42d55acd7f4923aac9a7d8d9c432fb&country=in",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
