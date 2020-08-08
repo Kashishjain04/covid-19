@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(  
-  // CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=vaccine&apiKey=64127cf643634d0c98de3f96c0935d6d",
+  CURLOPT_URL => "https://newsapi.org/v2/top-headlines?q=vaccine&apiKey=64127cf643634d0c98de3f96c0935d6d",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
