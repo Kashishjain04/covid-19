@@ -15,11 +15,12 @@
                 <div class="col-xl-3 col-sm-6 mb-5">
                     <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQGmJfba6MM8tA/profile-displayphoto-shrink_200_200/0?e=1606348800&v=beta&t=-eeSsQUxOV27mgze6oUp9nnZSEoCHL1RZXCZjCggxfE" alt="Kashish Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0">Kashish Jain</h5>
-                        <span class="small text-uppercase text-muted">Founder - Designer</span>
+                        <span class="small text-uppercase text-muted"> </span>
                         <ul class="social mb-0 list-inline mt-3">
                             <li class="list-inline-item"><a href="https://github.com/Kashishjain04" class="social-link"><i class="fa fa-github"></i></a></li>
                             <li class="list-inline-item"><a href="https://www.linkedin.com/in/kashish-jain-053ab9195/" class="social-link"><i class="fa fa-linkedin"></i></a></li>
                             <li class="list-inline-item"><a href="https://twitter.com/Kashish_jain04" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:jainabhishek7204@gmail.com" class="social-link"><i class="fa fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -29,10 +30,11 @@
             <div class="col-xl-3 col-sm-6 mb-5">
                     <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH84I_Vv17XVA/profile-displayphoto-shrink_200_200/0?e=1606348800&v=beta&t=NjVo6hJAXWagJk4dWXzUuENKrdWaJeQr1SLy-_dlVrs" alt="Nitika Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0">Nitika Jain</h5>
-                        <span class="small text-uppercase text-muted">Promotions Manager</span>
+                        <span class="small text-uppercase text-muted"> </span>
                         <ul class="social mb-0 list-inline mt-3">                            
                             <li class="list-inline-item"><a href="https://www.linkedin.com/in/nitika-jain-100a47147/" class="social-link"><i class="fa fa-linkedin"></i></a></li>
                             <li class="list-inline-item"><a href="https://twitter.com/Nitikajain1996" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="mailto:nitikajain867@gmail.com" class="social-link"><i class="fa fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
