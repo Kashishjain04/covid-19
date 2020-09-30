@@ -11,7 +11,6 @@ include("includes/header.php");
 $scode = file_get_contents('includes/statecode.json');
 $scode = json_decode($scode, true);
 include('includes/data.php');
-$toggle = true;
 ?>
 </head>
 <body onload="dark()" id="page-top">

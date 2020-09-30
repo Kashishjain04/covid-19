@@ -2,7 +2,6 @@
 $id =3;
 $title = "Headlines";
 $icon = "https://image.flaticon.com/icons/svg/2680/2680927.svg";
-$toggle = false;
 include('includes/header.php');
 include('includes/nav.php');
 ?>

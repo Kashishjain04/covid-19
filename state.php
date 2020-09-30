@@ -13,7 +13,6 @@ $scode = file_get_contents('includes/statecode.json');
 $scode = json_decode($scode, true);
 $map = file_get_contents('includes/maps.json');
 $map = json_decode($map, true);
-$toggle = true;
 include('includes/data.php');
 ?>
 
