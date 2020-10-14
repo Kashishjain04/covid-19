@@ -30,7 +30,7 @@
 
             <!-- Team item -->
             <div class="mx-auto col-xl-3 col-sm-6 mb-5">
-                    <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH84I_Vv17XVA/profile-displayphoto-shrink_200_200/0?e=1606348800&v=beta&t=NjVo6hJAXWagJk4dWXzUuENKrdWaJeQr1SLy-_dlVrs" alt="Nitika Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <div class="foot-card bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQEYekt88IwzNA/profile-displayphoto-shrink_800_800/0?e=1608163200&v=beta&t=nGzBzYSQy4xDev4nKkOZ-G3FujDP-blsBiZSjqtawuY" alt="Nitika Jain" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0">Nitika Jain</h5>
                         <!-- <span class="small text-uppercase text-muted">Co-Founder</span> --><br />
                         <h6 class="mb-0">Contact:</h6>
